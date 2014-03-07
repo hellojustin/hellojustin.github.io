@@ -1,0 +1,16 @@
+html, 
+body {
+  background-color: #FFFDE9;
+}
+
+.introduction span {
+  display: block;
+}
+
+.introduction .last-name {
+
+}
+
+.summary {
+  background-color: #7F7F75;
+}
