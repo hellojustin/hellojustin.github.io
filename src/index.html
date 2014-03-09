@@ -7,41 +7,45 @@
 
     <title>Justin Molineaux's Resum&eacute;</title>
 
-    <link rel='stylesheet' type='text/css' 
-          href='lib/bootstrap-3.1.1-dist/css/bootstrap.min.css' />
     <link rel='stylesheet' type='text/css' href='css/resume.css' />
   </head>
 
   <body> 
 
-    <article class='container'>
+    <article>
 
-      <header class='row'>
-        <img class='portrait col-xs-12 col-sm-4' alt='Photo of Justin' 
-             src='img/mug.jpg' />
-        <h1 class='introduction col-xs-12 col-sm-8'>
-          <span class='salutation lead'>Hi there! I'm</span>
-          <span class='first-name'>Justin</span>
-          <span class='last-name'>Molineaux</span>
-        </h1>
+      <header class='container'>
+        <div class='page-header-content'>
+          <img class='portrait' alt='Photo of Justin' src='img/mug.jpg' />
+          <h1 class='introduction'>
+            <span class='salutation'>Hi there! I'm</span>
+            <span class='first-name'>Justin</span>
+            <span class='last-name'>Molineaux</span>
+          </h1>
+        </div>
       </header>
 
-      <section class='summary'>
-        <p>
-          I'm an optimist. In my work, I strive to invent things that improve
-          the lives of individuals by pushing the boundaries of the possible.
-          I draw daily on my entrepreneurial instincts and a technical and 
-          professional background that spans the commercial sector, service 
-          sector, and academia. I seek out new technologies, methodologies, and
-          philosophies constantly. Over the past eight years, I've led teams and
-          worked as an individual contributor, and have managed to produce some
-          great results for some pretty cool organizations.
-        </p>
+      <section class='summary fluid-container'>
+        <div class='container'>
+          <h2>Summary</h2>
+          <p>
+            I'm an optimist. In my work, I strive to invent things that improve
+            the lives of individuals by pushing the boundaries of the possible.
+            I draw daily on my entrepreneurial instincts and a technical and 
+            professional background that spans the commercial sector, service 
+            sector, and academia. I seek out new technologies, methodologies, and
+            philosophies constantly. Over the past eight years, I've led teams and
+            worked as an individual contributor, and have managed to produce some
+            great results for some pretty cool organizations.
+          </p>
+        </div>
       </section>
 
-      <section class='experience'>
+      <section class='experience fluid-container'>
 
-        <ul>
+        <ul class='container'>
+
+          <h2>Experience</h2>
 
           <li class='organization'>
             <header>
@@ -65,70 +69,75 @@
                 t-shirt.
               </p>
             </header>
-            <div class='technology'>
-              <p>
-                I lead a team of full-stack engineers who work on the 
-                consumer-facing technology at CustomInk: our online design tool, 
-                our group-purchasing tools, and Booster.com, our fundraising 
-                platform. On the server-side, we use Ruby on Rails and have 
-                embraced service orientation to organize our systems. To build a
-                highly-interactive experience for our customers, we use a 
-                variety of Javascript frameworks, including Backbone,
-                Handlebars, RaphaelJS, jQuery, and ExtJS. I've also done a
-                considerable amount of work with True Type Fonts, Adobe
-                PostScript, and ImageMagick.
-              </p>
-            </div>
-            <div class='leadership'>
-              <p>
-                As a Technical Team Lead, my primary responsibility is to help 
-                the other engineers on my team do their best work. I regularly
-                frame technical problems, communicate the business context of
-                our technical work, seek and distribute information across the company,
-                organize conversations that yield technical design decisions,
-                improve our development process, and sit shoulder-to-shoulder with
-                my teammates to work through challenging problems. Every member
-                of my team has either won CustomInk's annual company-wide award for
-                innovation (1 award, 1000 Inkers) or has been promoted to a
-                technical team lead role. Even our team's intern's code is still
-                running in production.
-              </p>
-              <p>
-                In this role, I also have the responsibility of supervising
-                other engineers.
-              </p>
-              <p>
-                I'm not always actively leading, however. It's often the case 
-                that I don't have the best ideas on the team, or the most 
-                familiarity with a technology. When that happens, I step back 
-                and follow. In those cases, I ensure the health of the project 
-                by asking probing questions, and learning as fast as I can. I
-                strive to set an example of consideration and contemplation.
-                When our team considers eachother's ideas and is eager to learn,
-                our best thinking rises to the top.
-              </p>
-            </div>
-            <div class='entrepreneurship'>
-              <p>
-                I work extremely closely with our Product Managers and UX 
-                Designers as well. Together, we discover business
-                opportunities, decide which ones to tackle, how to tackle them,
-                and when. This is where company strategy meets development 
-                projects, and regularly involves advocating for certain projects
-                and explaining why we shouldn't do others.
-              </p>
-              <p>
-                Some notable business impact of my team's work includes:
-                - Increased revenue by ~$5MM, reduced customer service time by
-                8%, and improved customer satisfaction by 9% with the
-                introduction of features that remove backgrounds and detect
-                colors in uploaded artwork.
-                - Increased revenue by ~$2MM and decreased customer service work
-                with the introduction of draggable handles to resize text and
-                images.
-                - Doubled the rate at which customers place orders on Android
-                and iOS devices by making our design lab touch-compatible.
-              </p>
+            <div class='highlights'>
+              <div class='technology'>
+                <h5>Technology</h5><hr/>
+                <p>
+                  I lead a team of full-stack engineers who work on the 
+                  consumer-facing technology at CustomInk: our online design tool, 
+                  our group-purchasing tools, and Booster.com, our fundraising 
+                  platform. On the server-side, we use Ruby on Rails and have 
+                  embraced service orientation to organize our systems. To build a
+                  highly-interactive experience for our customers, we use a 
+                  variety of Javascript frameworks, including Backbone,
+                  Handlebars, RaphaelJS, jQuery, and ExtJS. I've also done a
+                  considerable amount of work with True Type Fonts, Adobe
+                  PostScript, and ImageMagick.
+                </p>
+              </div>
+              <div class='leadership'>
+                <h5>Leadership</h5><hr/>
+                <p>
+                  As a Technical Team Lead, my primary responsibility is to help 
+                  the other engineers on my team do their best work. I regularly
+                  frame technical problems, communicate the business context of
+                  our technical work, seek and distribute information across the company,
+                  organize conversations that yield technical design decisions,
+                  improve our development process, and sit shoulder-to-shoulder with
+                  my teammates to work through challenging problems. Every member
+                  of my team has either won CustomInk's annual company-wide award for
+                  innovation (1 award, 1000 Inkers) or has been promoted to a
+                  technical team lead role. Even our team's intern's code is still
+                  running in production.
+                </p>
+                <p>
+                  In this role, I also have the responsibility of supervising
+                  other engineers.
+                </p>
+                <p>
+                  I'm not always actively leading, however. It's often the case 
+                  that I don't have the best ideas on the team, or the most 
+                  familiarity with a technology. When that happens, I step back 
+                  and follow. In those cases, I ensure the health of the project 
+                  by asking probing questions, and learning as fast as I can. I
+                  strive to set an example of consideration and contemplation.
+                  When our team considers eachother's ideas and is eager to learn,
+                  our best thinking rises to the top.
+                </p>
+              </div>
+              <div class='entrepreneurship'>
+                <h5>Entrepreneurship</h5><hr/>
+                <p>
+                  I work extremely closely with our Product Managers and UX 
+                  Designers as well. Together, we discover business
+                  opportunities, decide which ones to tackle, how to tackle them,
+                  and when. This is where company strategy meets development 
+                  projects, and regularly involves advocating for certain projects
+                  and explaining why we shouldn't do others.
+                </p>
+                <p>
+                  Some notable business impact of my team's work includes:
+                  - Increased revenue by ~$5MM, reduced customer service time by
+                  8%, and improved customer satisfaction by 9% with the
+                  introduction of features that remove backgrounds and detect
+                  colors in uploaded artwork.
+                  - Increased revenue by ~$2MM and decreased customer service work
+                  with the introduction of draggable handles to resize text and
+                  images.
+                  - Doubled the rate at which customers place orders on Android
+                  and iOS devices by making our design lab touch-compatible.
+                </p>
+              </div>
             </div>
           </li>
 
@@ -155,56 +164,61 @@
                 affected, and when.
               </p>
             </header>
-            <div class='technology'>
-              <p>
-                The core Netuitive product is a Spring Framework application 
-                that is shipped via downloadable installers for Windows and
-                Linux. The installer installs Tomcat, provisions the database, 
-                and deploys the application. After the initial installation,
-                administrators can install additional packages that add features
-                and integrate with other performance monitoring tools.
-              </p>
-              <p>
-                At Netuitive, I added several reporting features to the core
-                product, but my more interesting work was on a secondary product
-                called Hydra. Along with two other engineers, I built hydra 
-                using Groovy and Grails that allowed customers running several
-                instances of the core product to aggregate and view data across 
-                all instances. This product also added Single-Sign-On to the 
-                core product. I also worked on third-party integrations with 
-                NetIQ and IBM Tivoli.
-              </p>
-            </div>
-            <div class='leadership'>
-              <p>
-                I think I surprised a few people with how quickly I came up to
-                speed on what is a rather complex product. Shortly after I 
-                arrived at Netuitive, I was influencing development decisions,
-                corresponding with third-party vendors with whom we had
-                partnerships, and presenting my work to senior company
-                leadership.
-              </p>
-              <p>
-                I also spent several months mentoring an intern, who still works
-                for Netuitive today.
-              </p>
-            </div>
-            <div class='entrepreneurship'>
-              <p>
-                Perhaps my biggest accomplishment at Netuitive was building a
-                well-performing integration with IBM's Tivoli. At the time,
-                Tivioli represented about one third of the application
-                performance management market, yet its APIs were too slow for us
-                to effectively integrate. I used a unique approach which allowed
-                Netuitive to effeciently read Tivoli data, opening up a whole
-                new set of potential customers. This work positioned me to win
-                Netuitive's "Rookie of the Year" award.
-              </p>
-              <p>
-                I also cultivated a relationship with Netuitive's director of
-                solution architecture, and supported him on difficult
-                proof-of-concept demonstrations at customer sites.
-              </p>
+            <div class='highlights'>
+              <div class='technology'>
+                <h5>Technology</h5><hr/>
+                <p>
+                  The core Netuitive product is a Spring Framework application 
+                  that is shipped via downloadable installers for Windows and
+                  Linux. The installer installs Tomcat, provisions the database, 
+                  and deploys the application. After the initial installation,
+                  administrators can install additional packages that add features
+                  and integrate with other performance monitoring tools.
+                </p>
+                <p>
+                  At Netuitive, I added several reporting features to the core
+                  product, but my more interesting work was on a secondary product
+                  called Hydra. Along with two other engineers, I built hydra 
+                  using Groovy and Grails that allowed customers running several
+                  instances of the core product to aggregate and view data across 
+                  all instances. This product also added Single-Sign-On to the 
+                  core product. I also worked on third-party integrations with 
+                  NetIQ and IBM Tivoli.
+                </p>
+              </div>
+              <div class='leadership'>
+                <h5>Leadership</h5><hr/>
+                <p>
+                  I think I surprised a few people with how quickly I came up to
+                  speed on what is a rather complex product. Shortly after I 
+                  arrived at Netuitive, I was influencing development decisions,
+                  corresponding with third-party vendors with whom we had
+                  partnerships, and presenting my work to senior company
+                  leadership.
+                </p>
+                <p>
+                  I also spent several months mentoring an intern, who still works
+                  for Netuitive today.
+                </p>
+              </div>
+              <div class='entrepreneurship'>
+                <h5>Entrepreneurship</h5><hr/>
+                <p>
+                  Perhaps my biggest accomplishment at Netuitive was building a
+                  well-performing integration with IBM's Tivoli. At the time,
+                  Tivioli represented about one third of the application
+                  performance management market, yet its APIs were too slow for us
+                  to effectively integrate. I used a unique approach which allowed
+                  Netuitive to effeciently read Tivoli data, opening up a whole
+                  new set of potential customers. This work positioned me to win
+                  Netuitive's "Rookie of the Year" award.
+                </p>
+                <p>
+                  I also cultivated a relationship with Netuitive's director of
+                  solution architecture, and supported him on difficult
+                  proof-of-concept demonstrations at customer sites.
+                </p>
+              </div>
             </div>
           </li>
 
@@ -229,68 +243,73 @@
                 Mexico, Canada, Ireland, and Switzerland.
               </p>
             </header>
-            <div class='technology'>
-              <p>
-                At the Federal Communications Commission, I worked to develop
-                new features and improve the performance of the Integrated
-                Spectrum Auctions System and the Universal Licensing System.
-                Together, the two systems allocate and manage the usage of all
-                airwaves in the United States. The two systems were built on a
-                variety of technologies: Standard JEE, the Spring Framework, and
-                Adobe ColdFusion. All components were hosted via BEA Weblogic
-                and ran on top of Sybase.
-              </p>
-              <p>
-                Most notably, I overhauled the system that generated printed
-                licenses and correspondence so that spectrum license holders
-                could retrieve pixel-perfect, historically accurate PDF copies
-                (of the original PostScript version of the document) for all
-                correspondence from the FCC.
-              </p>
-            </div>
-            <div class='leadership'>
-              <p>
-                During the transition from analog to digital television in the
-                US, I led the development of the DTV.gov website. The site took
-                on many different forms during the transition and afterward, but
-                much of the underlying technology and data models remained the
-                same due my early design work.
-              </p>
-              <p>
-                I was also the first person to introduce the Scrum methodology
-                at Computech. Introducing Scrum at a CMMI Level III organization
-                is no walk in the park, but we managed to learn enough about how
-                the project would have to work during the pilot project that we
-                were able to make it a regular development methodology at the
-                company.
-              </p>
-              <p>
-                In my final year at Computech, I led a company wide transition
-                from Yahoo Mail to Google Apps. The effort involved evaluating
-                a number of intranet tools, building consensus among company
-                leadership, making the technology switch, and training the 250
-                employees on the basics of Gmail, Google Docs, and Google Sites.
-                Ultimately, the switch made collaboration far easier, and for
-                my effort, I won the company's "Above and Beyond Award".
-              </p>
-            </div>
-            <div class='entrepreneurship'>
-              <p>
-                My entrepreneurial instincts were very much developing while I
-                was at Computech. I could see the Cloud Computing trend emerging
-                though, so I led an iniative to improve Computech's familiarity
-                with Amazon Web Services, Google App Engine, and Rackspace. As a
-                result, the company was able to speak intelligently about the
-                tradeoffs of each, when most competitors only knew Cloud
-                Computing as a buzz word.
-              </p>
-              <p>
-                I also helped write the technology sections of several
-                proposals. Most notably, I summarized Computech's spectrum
-                auctions work at the FCC and its plans for improvements in a
-                re-compete proposal that ultimately won a new 5-year, ~$100MM 
-                contract with FCC. 
-              </p>
+            <div class='highlights'>
+              <div class='technology'>
+                <h5>Technology</h5><hr/>
+                <p>
+                  At the Federal Communications Commission, I worked to develop
+                  new features and improve the performance of the Integrated
+                  Spectrum Auctions System and the Universal Licensing System.
+                  Together, the two systems allocate and manage the usage of all
+                  airwaves in the United States. The two systems were built on a
+                  variety of technologies: Standard JEE, the Spring Framework, and
+                  Adobe ColdFusion. All components were hosted via BEA Weblogic
+                  and ran on top of Sybase.
+                </p>
+                <p>
+                  Most notably, I overhauled the system that generated printed
+                  licenses and correspondence so that spectrum license holders
+                  could retrieve pixel-perfect, historically accurate PDF copies
+                  (of the original PostScript version of the document) for all
+                  correspondence from the FCC.
+                </p>
+              </div>
+              <div class='leadership'>
+                <h5>Leadership</h5><hr/>
+                <p>
+                  During the transition from analog to digital television in the
+                  US, I led the development of the DTV.gov website. The site took
+                  on many different forms during the transition and afterward, but
+                  much of the underlying technology and data models remained the
+                  same due my early design work.
+                </p>
+                <p>
+                  I was also the first person to introduce the Scrum methodology
+                  at Computech. Introducing Scrum at a CMMI Level III organization
+                  is no walk in the park, but we managed to learn enough about how
+                  the project would have to work during the pilot project that we
+                  were able to make it a regular development methodology at the
+                  company.
+                </p>
+                <p>
+                  In my final year at Computech, I led a company wide transition
+                  from Yahoo Mail to Google Apps. The effort involved evaluating
+                  a number of intranet tools, building consensus among company
+                  leadership, making the technology switch, and training the 250
+                  employees on the basics of Gmail, Google Docs, and Google Sites.
+                  Ultimately, the switch made collaboration far easier, and for
+                  my effort, I won the company's "Above and Beyond Award".
+                </p>
+              </div>
+              <div class='entrepreneurship'>
+                <h5>Entrepreneurship</h5><hr/>
+                <p>
+                  My entrepreneurial instincts were very much developing while I
+                  was at Computech. I could see the Cloud Computing trend emerging
+                  though, so I led an iniative to improve Computech's familiarity
+                  with Amazon Web Services, Google App Engine, and Rackspace. As a
+                  result, the company was able to speak intelligently about the
+                  tradeoffs of each, when most competitors only knew Cloud
+                  Computing as a buzz word.
+                </p>
+                <p>
+                  I also helped write the technology sections of several
+                  proposals. Most notably, I summarized Computech's spectrum
+                  auctions work at the FCC and its plans for improvements in a
+                  re-compete proposal that ultimately won a new 5-year, ~$100MM 
+                  contract with FCC. 
+                </p>
+              </div>
             </div>
           </li>
 
@@ -313,41 +332,46 @@
                 unsupervised machine learning and other statistical techniques.
               </p>
             </header>
-            <div class='technology'>
-              <p>
-                As an intern at CBIL, I built a desktop visualization tool 
-                called ModVis that read the output files of many different
-                module discovery algorithms and display their data in a way that
-                allowed medical doctors to see and explore the commonalities
-                between them. The tool itself was built using J2SE Swing with 
-                custom AWT components, and it read data generated by AffyMetrix
-                MicroArray chips.
-              </p>
-            </div>
-            <div class='leadership'>
-              <p>
-                The majority of my work at CBIL was done independently, with
-                monthly check-ins from a senior professor. It was largely up to
-                me to decide what techonologies to use, what to build, and how.
-                Upon graduating from college, I helped to on-board a new 
-                graduate student who continued the work after I left.
-              </p>
-            </div>
-            <div class='entrepreneurship'>
-              <p>
-                Academic research is not intrinsically entrepreneurial, but the
-                potential impact of this work was never lost on me. If we could
-                identify a cluster of genes, that when under- or over-expressed,
-                cause disorders like Muscular Dystrophy or Cancer, it could be
-                possible for medical doctors to create a 'healthy' virus that
-                would infect the affected cells, reverse the genetic anomaly,
-                and cure the affliction.
-              </p>
-              <p>
-                In November of 2006, I published and presented my work at the
-                19th International Conference on Computer Applications in 
-                Industry and Engineering in Las Vegas, NV. 
-              </p>
+            <div class='highlights'>
+              <div class='technology'>
+                <h5>Technology</h5><hr/>
+                <p>
+                  As an intern at CBIL, I built a desktop visualization tool 
+                  called ModVis that read the output files of many different
+                  module discovery algorithms and display their data in a way that
+                  allowed medical doctors to see and explore the commonalities
+                  between them. The tool itself was built using J2SE Swing with 
+                  custom AWT components, and it read data generated by AffyMetrix
+                  MicroArray chips.
+                </p>
+              </div>
+              <div class='leadership'>
+                <h5>Leadership</h5><hr/>
+                <p>
+                  The majority of my work at CBIL was done independently, with
+                  monthly check-ins from a senior professor. It was largely up to
+                  me to decide what techonologies to use, what to build, and how.
+                  Upon graduating from college, I helped to on-board a new 
+                  graduate student who continued the work after I left.
+                </p>
+              </div>
+              <div class='entrepreneurship'>
+                <h5>Entrepreneurship</h5><hr/>
+                <p>
+                  Academic research is not intrinsically entrepreneurial, but the
+                  potential impact of this work was never lost on me. If we could
+                  identify a cluster of genes, that when under- or over-expressed,
+                  cause disorders like Muscular Dystrophy or Cancer, it could be
+                  possible for medical doctors to create a 'healthy' virus that
+                  would infect the affected cells, reverse the genetic anomaly,
+                  and cure the affliction.
+                </p>
+                <p>
+                  In November of 2006, I published and presented my work at the
+                  19th International Conference on Computer Applications in 
+                  Industry and Engineering in Las Vegas, NV. 
+                </p>
+              </div>
             </div>
           </li>
 
@@ -355,9 +379,11 @@
 
       </section>
 
-      <section class='education'>
+      <section class='education fluid-container'>
 
-        <ul>
+        <ul class='container'>
+
+          <h2>Education</h2>
 
           <li class='credential'>
             <header>
@@ -416,48 +442,54 @@
 
       </section>
 
-      <section class='publications'>
+      <section class='publications fluid-container'>
 
-        <div class='citation'>
-          <div class='paper'>
-            Spatially Recursive Spreadsheet Computations: Teaching the Critical
-            Path Method of Scheduling using Two-Dimensional Function Ranges
-            versus Traditional One-Dimensional Programming
-          </div>
-          <div class='conference-journal'>
-            Proceedings of the 2007 ASEE Annual Conference and Exposition
-          </div>
-          <div class='date'>
-            June 2007
-          </div>
-        </div>
+        <ul class='container'>
 
-        <div class='citation'>
-          <div class='paper'>
-            Disaster-Mitigating Design and Practice: A Student-Centered Program
-            Developing Sustainable and Earthquake-Resistant Designs for
-            Residential Structures in Developing Regions
-          </div>
-          <div class='conference-journal'>
-            Proceedings of the 2007 ASEE Annual Conference and Exposition
-          </div>
-          <div class='date'>
-            June 2007
-          </div>
-        </div>
+          <h2>Publications</h2>
 
-        <div class='citation'>
-          <div class='paper'>
-            ModVis: an Information Visualization Tool for Gene Module Discovery
+          <li class='citation'>
+            <div class='paper'>
+              Spatially Recursive Spreadsheet Computations: Teaching the Critical
+              Path Method of Scheduling using Two-Dimensional Function Ranges
+              versus Traditional One-Dimensional Programming
+            </div>
+            <div class='conference-journal'>
+              Proceedings of the 2007 ASEE Annual Conference and Exposition
+            </div>
+            <div class='date'>
+              June 2007
+            </div>
           </div>
-          <div class='conference-journal'>
-            19th International Conference on Computer Applications in Industry
-            and Engineering
+
+          <li class='citation'>
+            <div class='paper'>
+              Disaster-Mitigating Design and Practice: A Student-Centered Program
+              Developing Sustainable and Earthquake-Resistant Designs for
+              Residential Structures in Developing Regions
+            </div>
+            <div class='conference-journal'>
+              Proceedings of the 2007 ASEE Annual Conference and Exposition
+            </div>
+            <div class='date'>
+              June 2007
+            </div>
           </div>
-          <div class='date'>
-            November 2006
+
+          <li class='citation'>
+            <div class='paper'>
+              ModVis: an Information Visualization Tool for Gene Module Discovery
+            </div>
+            <div class='conference-journal'>
+              19th International Conference on Computer Applications in Industry
+              and Engineering
+            </div>
+            <div class='date'>
+              November 2006
+            </div>
           </div>
-        </div>
+
+        </ul>
 
       </section>
 

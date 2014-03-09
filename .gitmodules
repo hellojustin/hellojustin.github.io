@@ -1,0 +1,6 @@
+[submodule "src/lib/bootsrap"]
+	path = src/lib/bootsrap
+	url = git@github.com:twbs/bootstrap.git
+[submodule "src/lib/bootstrap"]
+	path = src/lib/bootstrap
+	url = git@github.com:twbs/bootstrap.git
