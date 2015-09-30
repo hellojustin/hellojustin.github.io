@@ -1,6 +1,6 @@
 {
   "name": "hellojustin.net",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The source code for www.hellojustin.net",
   "main": "Gruntfile.js",
   "scripts": {
@@ -10,14 +10,17 @@
     "type": "git",
     "url": "git://github.com/hellojustin/hellojustin.net.git"
   },
-  "author": "Justin Molineaux",
-  "license": "BSD",
+  "author": "Justin Molineaux <justin.molineaux@gmail.com>",
+  "license": "(MIT OR Apache-2.0)",
   "bugs": {
     "url": "https://github.com/hellojustin/hellojustin.net/issues"
   },
-  "devDependencies": {
-    "grunt" : "~0.4.1",
-    "grunt-contrib-less"  : "~0.10.0",
-    "grunt-contrib-watch" : "~0.4.0"
+  "dependencies" : {
+    "bower" : "~1.5.3"
+  },
+  "devDependencies" : {
+    "grunt"               : "~0.4.5",
+    "grunt-contrib-sass"  : "~0.8.0",
+    "grunt-contrib-watch" : "~0.6.1"
   }
 }

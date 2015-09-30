@@ -1,33 +1,28 @@
 module.exports = function( grunt ) {
-  
+
   grunt.initConfig( {
-    less : {
-      development : {
-        options : {
-          compress     : true,
-          yuicompress  : true,
-          optimization : 2
-        },
-        files : {
-          'src/css/main.css'   : 'src/less/main.less',
-          'src/css/resume.css' : 'src/less/resume.less'
-        }
+    sass : {
+      dist : {
+        files : [{
+          expand : true,
+          cwd    : 'src/sass',
+          src    : ['**/*.sass'],
+          dest   : 'src/css',
+          ext    : '.css'
+        }]
       }
     },
     watch : {
       styles : {
-        files : [ 'src/less/**/*.less' ],
-        tasks : [ 'less' ],
-        options : {
-          nospawn : true
-        }
+        files : [ 'src/sass/**/*.sass' ],
+        tasks : [ 'sass' ]
       }
     }
   } );
 
-  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
- 
-  grunt.registerTask('default', ['less']);
+
+  grunt.registerTask('default', ['watch']);
 
 }

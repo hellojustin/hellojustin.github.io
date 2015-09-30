@@ -1,4 +1,10 @@
-node_modules/
+# Dependencies and Artifacts #
+##############################
+.sass-cache
+bower_components
+dist
+node_modules
+
 
 # Compiled source #
 ###################
