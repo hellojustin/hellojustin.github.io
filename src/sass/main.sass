@@ -1,8 +1,82 @@
 @import '../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap'
+@import 'colors'
 
 body
-  background-color : #BADA55
+  background-color     : $main-bg-color
+  color                : $main-p-color
 
-img
-  border : 1px solid black
-  padding: 10px
+header, section
+  padding              : 1rem
+
+#introduction
+  padding              : 2rem 8rem
+  background-color     : $header-bg-color
+  color                : $header-h-color
+
+  .mugshot
+    height             : 25rem
+
+  .round-img
+    border             : 1.5rem solid $deep-blue
+    border-radius      : 50%
+
+  .mug
+    display            : inline-block
+    vertical-align     : middle
+    margin-right       : 3rem
+
+  .headline
+    display            : inline-block
+    vertical-align     : middle
+
+
+#education
+  padding              : 2rem 8rem
+  background-color     : $header-bg-color
+  color                : $header-h-color
+
+#experience
+  padding              : 2rem 8rem
+  & > *
+    display            : inline-block
+    vertical-align     : top
+  .employment-details
+    width              : 45%
+    position           : relative
+  .heatmap
+    height             : 2125px
+    width              : 34%
+    margin-left        : -4px
+    margin-right       : -5px
+  .amateur-details
+    width              : 20%
+    position           : relative
+
+.employment-detail
+  .employment-detail-header
+    position           : relative
+    height             : 6rem
+    color              : $main-h-color
+    border-bottom      : 1px solid $main-h-color
+    & > *
+      display          : inline-block
+      position         : absolute
+      bottom           : 0
+  .tenure
+    right              : 1rem
+
+.amateur-detail
+  .amateur-detail-header
+    text-align         : right
+    margin-top         : 4rem
+    h4
+      margin-bottom    : 0
+      font-size        : 1.5rem
+      height           : 2rem
+
+  &.range .amateur-detail-header
+    color              : $main-h-color
+    border-bottom      : 1px solid $main-h-color
+
+  &.point .amateur-detail-header
+    border-bottom      : 1px solid $main-p-color
