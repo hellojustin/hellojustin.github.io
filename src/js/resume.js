@@ -37,8 +37,8 @@ ResumeHeatmap.prototype.measure = function() {
   this.fontSize          = this.element.width() * .04;
   this.presentDate       = { month: 10, year: 2015 }
   this.element.height( this.proHeight );
-  this.p.setSize( this.element.width(), this.element.height() );
-}
+  this.p.setSize( this.element.width(), this.element.parent().height() );
+};
 
 ResumeHeatmap.prototype.draw = function() {
   this.measure();
@@ -54,10 +54,10 @@ ResumeHeatmap.prototype.draw = function() {
   this.labels = this.drawYearLabels();
 
   this.jobBrackets = this.drawBrackets( this.emplDetailsEls );
-  this.jobBrackets.attr({ 'stroke' : 'rgba( 240, 202,  77, 1 )' });
+  this.jobBrackets.attr({ 'stroke' : 'rgba(  62,  96, 111, 1 )' });
 
   this.amateurBrackets = this.drawBrackets( this.amateurDetailsEls );
-  this.amateurBrackets.attr({ 'stroke' : 'rgba( 240, 202,  77, 1 )' });
+  this.amateurBrackets.attr({ 'stroke' : 'rgba(  62,  96, 111, 1 )' });
   this.amateurBrackets.transform( "S-1,1T" + this.rightBracketX + ",0" );
 };
 
@@ -71,12 +71,12 @@ ResumeHeatmap.prototype.debounce = function( callback, delay ) {
       callback.apply( context, args );
     }, delay );
   }
-}
+};
 
 ResumeHeatmap.prototype.resize = function() {
   this.p.clear();
   this.draw();
-}
+};
 
 ResumeHeatmap.prototype.drawRows = function( data, rowSize ) {
   this.p.setStart();
@@ -123,11 +123,11 @@ ResumeHeatmap.prototype.drawYearLabel = function( row, year ) {
       text  = "'" + year.toString().slice( 2 );
   this.p.rect( x, y-1, this.labelWidth, 0.5 ).attr({
     'fill'   : 'none',
-    'stroke' : 'rgba(  70, 178, 157, 1 )'
+    'stroke' : 'rgba( 209, 219, 189, 1 )'
   });
   this.p.text( textX, textY, text ).attr({
     'font-size' : this.fontSize,
-    'fill'      : 'rgba(  70, 178, 157, 1 )'
+    'fill'      : 'rgba( 209, 219, 189, 1 )'
   });
 };
 
@@ -168,7 +168,7 @@ ResumeHeatmap.prototype.drawBracket = function( el ) {
                     0,                     topY + height/2,
                     this.bracketTailWidth, topY + height/2 ] ]
   });
-}
+};
 
 ResumeHeatmap.prototype.getRowFromMonthYear = function( month, year ) {
   if ( year === this.presentDate.year ) {
@@ -181,7 +181,7 @@ ResumeHeatmap.prototype.getRowFromMonthYear = function( month, year ) {
         monthsInOccurringYear  = 12 - month;
     return monthsThisYear + monthsIntercedingYears + monthsInOccurringYear;
   }
-}
+};
 
 var data    = {
   presetColors : {
@@ -323,7 +323,7 @@ var data    = {
     { month :  2, year  : 2006, professional  : [ 'p0', 'p0', 'p0', 'p0', 'p0', 'p1', 'p1', 'p2', 'p7', 'p7' ], amateur : [] },
     { month :  1, year  : 2006, professional  : [ 'p0', 'p0', 'p0', 'p0', 'p0', 'p1', 'p1', 'p2', 'p7', 'p7' ], amateur : [] },
   ]
-}
+};
 
 var heatmap = new ResumeHeatmap( 'ResumeHeatmap', data, '.employment-detail', '.amateur-detail.range' );
 heatmap.draw();

@@ -3,6 +3,10 @@ module.exports = function( grunt ) {
   grunt.initConfig( {
     sass : {
       dist : {
+        options : {
+          compass : true,
+          bundleExec : true
+        },
         files : [{
           expand : true,
           cwd    : 'src/sass',

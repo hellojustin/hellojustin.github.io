@@ -5798,20 +5798,20 @@ button.close {
 /* define color values */
 /* define color-use names (use these vars in rest of code) */
 body {
-  background-color: #324d5c;
-  color: #46b29d; }
+  background-color: #fcfff5;
+  color: #3e606f; }
 
 header, section {
   padding: 1rem; }
 
 #introduction {
   padding: 2rem 8rem;
-  background-color: #46b29d;
-  color: #324d5c; }
+  background-color: #3e606f;
+  color: #91aa9d; }
   #introduction .mugshot {
     height: 25rem; }
   #introduction .round-img {
-    border: 1.5rem solid #324d5c;
+    border: 1.5rem solid #91aa9d;
     border-radius: 50%; }
   #introduction .mug {
     display: inline-block;
@@ -5823,8 +5823,42 @@ header, section {
 
 #education {
   padding: 2rem 8rem;
-  background-color: #46b29d;
-  color: #324d5c; }
+  background-color: #3e606f;
+  color: #91aa9d; }
+
+#experienceHeader {
+  padding: 2rem 8rem;
+  width: 100%;
+  text-align: center; }
+  #experienceHeader .color-key {
+    display: inline-block;
+    text-align: left;
+    width: 12%; }
+    #experienceHeader .color-key > * {
+      display: inline-block; }
+    #experienceHeader .color-key .swatch {
+      height: 1.5rem;
+      width: 1.5rem; }
+    #experienceHeader .color-key .swatch-label {
+      text-align: left;
+      vertical-align: top;
+      font-size: 1.2rem; }
+    #experienceHeader .color-key .color1 {
+      background-color: #8cc63f; }
+    #experienceHeader .color-key .color2 {
+      background-color: #009245; }
+    #experienceHeader .color-key .color3 {
+      background-color: #29abe2; }
+    #experienceHeader .color-key .color4 {
+      background-color: #2e3192; }
+    #experienceHeader .color-key .color5 {
+      background-color: #93278f; }
+    #experienceHeader .color-key .color6 {
+      background-color: #d4145a; }
+    #experienceHeader .color-key .color7 {
+      background-color: #f7931e; }
+    #experienceHeader .color-key .color8 {
+      background-color: #fcee21; }
 
 #experience {
   padding: 2rem 8rem; }
@@ -5843,17 +5877,33 @@ header, section {
     width: 20%;
     position: relative; }
 
+.details-header h2 {
+  color: #91aa9d;
+  font-size: 2rem;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin-top: 0; }
+
+.amateur-details-header {
+  text-align: right; }
+
 .employment-detail .employment-detail-header {
   position: relative;
   height: 6rem;
-  color: #f0ca4d;
-  border-bottom: 1px solid #f0ca4d; }
+  color: #193441;
+  border-bottom: 1px solid #193441; }
   .employment-detail .employment-detail-header > * {
     display: inline-block;
     position: absolute;
-    bottom: 0; }
+    bottom: 0;
+    font-weight: 300;
+    width: 50%; }
+.employment-detail .title {
+  font-size: 2rem; }
 .employment-detail .tenure {
-  right: 1rem; }
+  font-size: 1.5rem;
+  right: 1rem;
+  text-align: right; }
 
 .amateur-detail .amateur-detail-header {
   text-align: right;
@@ -5861,11 +5911,13 @@ header, section {
   .amateur-detail .amateur-detail-header h4 {
     margin-bottom: 0;
     font-size: 1.5rem;
-    height: 2rem; }
+    height: 2rem;
+    font-weight: 300; }
 .amateur-detail.range .amateur-detail-header {
-  color: #f0ca4d;
-  border-bottom: 1px solid #f0ca4d; }
+  color: #193441;
+  border-bottom: 1px solid #193441; }
 .amateur-detail.point .amateur-detail-header {
-  border-bottom: 1px solid #46b29d; }
+  color: #91aa9d;
+  border-bottom: 1px solid #91aa9d; }
 
 /*# sourceMappingURL=main.css.map */

@@ -17,7 +17,7 @@ header, section
     height             : 25rem
 
   .round-img
-    border             : 1.5rem solid $deep-blue
+    border             : 1.5rem solid $turquoise
     border-radius      : 50%
 
   .mug
@@ -29,11 +29,46 @@ header, section
     display            : inline-block
     vertical-align     : middle
 
-
 #education
   padding              : 2rem 8rem
   background-color     : $header-bg-color
   color                : $header-h-color
+
+#experienceHeader
+  padding              : 2rem 8rem
+  width                : 100%
+  text-align           : center
+
+  .color-key
+    display            : inline-block
+    text-align         : left
+    width              : 12%
+    & > *
+      display          : inline-block
+    .swatch
+      height           : 1.5rem
+      width            : 1.5rem
+    .swatch-label
+      text-align       : left
+      vertical-align   : top
+      font-size        : 1.2rem
+    .color1
+      background-color : $heatmap-color-1
+    .color2
+      background-color : $heatmap-color-2
+    .color3
+      background-color : $heatmap-color-3
+    .color4
+      background-color : $heatmap-color-4
+    .color5
+      background-color : $heatmap-color-5
+    .color6
+      background-color : $heatmap-color-6
+    .color7
+      background-color : $heatmap-color-7
+    .color8
+      background-color : $heatmap-color-8
+
 
 #experience
   padding              : 2rem 8rem
@@ -52,6 +87,16 @@ header, section
     width              : 20%
     position           : relative
 
+.details-header h2
+  color                : $turquoise
+  font-size            : 2rem
+  font-weight          : 200
+  text-transform       : uppercase
+  margin-top           : 0
+
+.amateur-details-header
+  text-align           : right
+
 .employment-detail
   .employment-detail-header
     position           : relative
@@ -62,8 +107,14 @@ header, section
       display          : inline-block
       position         : absolute
       bottom           : 0
+      font-weight      : 300
+      width            : 50%
+  .title
+    font-size          : 2rem
   .tenure
+    font-size          : 1.5rem
     right              : 1rem
+    text-align         : right
 
 .amateur-detail
   .amateur-detail-header
@@ -73,10 +124,12 @@ header, section
       margin-bottom    : 0
       font-size        : 1.5rem
       height           : 2rem
+      font-weight      : 300
 
   &.range .amateur-detail-header
     color              : $main-h-color
     border-bottom      : 1px solid $main-h-color
 
   &.point .amateur-detail-header
-    border-bottom      : 1px solid $main-p-color
+    color              : $turquoise
+    border-bottom      : 1px solid $turquoise

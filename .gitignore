@@ -1,6 +1,7 @@
 # Dependencies and Artifacts #
 ##############################
 .sass-cache
+.bundle
 bower_components
 dist
 node_modules
