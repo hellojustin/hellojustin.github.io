@@ -6,18 +6,21 @@ body
   color                : $main-p-color
 
 header, section
-  padding              : 1rem
+  padding              : 0 1rem 1rem
+
+ul
+  padding-left         : 1.6rem
 
 #introduction
-  padding              : 2rem 8rem
+  padding              : 2rem 8%
   background-color     : $header-bg-color
   color                : $header-h-color
 
   .mugshot
-    height             : 25rem
+    height             : 18rem
 
   .round-img
-    border             : 1.5rem solid $turquoise
+    border             : 1rem solid $turquoise
     border-radius      : 50%
 
   .mug
@@ -29,13 +32,16 @@ header, section
     display            : inline-block
     vertical-align     : middle
 
+  .title
+    font-size          : 2rem
+
 #education
-  padding              : 2rem 8rem
+  padding              : 2rem 8%
   background-color     : $header-bg-color
   color                : $header-h-color
 
 #experienceHeader
-  padding              : 2rem 8rem
+  padding              : 2rem 8%
   width                : 100%
   text-align           : center
 
@@ -71,7 +77,7 @@ header, section
 
 
 #experience
-  padding              : 2rem 8rem
+  padding              : 2rem 8%
   & > *
     display            : inline-block
     vertical-align     : top
@@ -79,12 +85,12 @@ header, section
     width              : 45%
     position           : relative
   .heatmap
-    height             : 2125px
-    width              : 34%
+    height             : 100%
+    width              : 38%
     margin-left        : -4px
     margin-right       : -5px
   .amateur-details
-    width              : 20%
+    width              : 16%
     position           : relative
 
 .details-header h2
@@ -101,8 +107,8 @@ header, section
   .employment-detail-header
     position           : relative
     height             : 6rem
-    color              : $main-h-color
-    border-bottom      : 1px solid $main-h-color
+    color              : $royal
+    border-bottom      : 1px solid $royal
     & > *
       display          : inline-block
       position         : absolute
@@ -110,11 +116,26 @@ header, section
       font-weight      : 300
       width            : 50%
   .title
-    font-size          : 2rem
+    font-size          : 1.8rem
+    font-weight        : 200
+    margin-top         : 0.9rem
+  .company
+    height             : 3rem
+    width              : auto
+    max-width          : 50%
+    margin-bottom      : 1rem
   .tenure
     font-size          : 1.5rem
     right              : 1rem
     text-align         : right
+  .gallery
+    margin-bottom      : 4rem
+    text-align         : center
+    .thumb
+      height           : 4.5rem
+      display          : inline-block
+      border-radius    : 1rem
+      margin           : 0.25rem
 
 .amateur-detail
   .amateur-detail-header
@@ -127,9 +148,12 @@ header, section
       font-weight      : 300
 
   &.range .amateur-detail-header
-    color              : $main-h-color
-    border-bottom      : 1px solid $main-h-color
+    color              : $royal
+    border-bottom      : 1px solid $royal
 
   &.point .amateur-detail-header
     color              : $turquoise
     border-bottom      : 1px solid $turquoise
+
+.lightbox__caption
+  min-height           : 15%

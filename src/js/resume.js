@@ -18,22 +18,22 @@ var ResumeHeatmap = function ( selector, data, emplDetailsSelector, amateurDetai
 };
 
 ResumeHeatmap.prototype.measure = function() {
-  this.cellWidth         = this.element.width() * .03;
+  this.cellWidth         = this.element.width() * .031;
   this.cellHeight        = this.cellWidth;
-  this.cellSpace         = this.cellWidth * .2;
+  this.cellSpace         = this.cellWidth * .1;
   this.colWidth          = this.cellWidth + this.cellSpace;
   this.rowHeight         = this.cellHeight + this.cellSpace;
   this.bracketRangeWidth = this.element.width() * .04;
   this.bracketTailWidth  = this.bracketRangeWidth * 3;
   this.bracketWidth      = this.bracketRangeWidth + this.bracketTailWidth;
-  this.proX              = this.bracketWidth + this.cellSpace*2;
+  this.proX              = this.bracketWidth + this.cellSpace*5;
   this.proHeight         = this.rowHeight * this.proSkillUse.length;
   this.proWidth          = this.colWidth * 10;
-  this.labelX            = this.proX + this.proWidth
+  this.labelX            = this.proX + this.proWidth + this.cellSpace*5
   this.labelWidth        = this.element.width() * .11;
-  this.amateurX          = this.labelX + this.labelWidth + this.cellSpace;
+  this.amateurX          = this.labelX + this.labelWidth + this.cellSpace*5;
   this.amateurWidth      = this.colWidth * 5;
-  this.rightBracketX     = this.amateurX + this.amateurWidth + this.cellSpace*2;
+  this.rightBracketX     = this.amateurX + this.amateurWidth + this.cellSpace*5;
   this.fontSize          = this.element.width() * .04;
   this.presentDate       = { month: 10, year: 2015 }
   this.element.height( this.proHeight );
@@ -185,14 +185,14 @@ ResumeHeatmap.prototype.getRowFromMonthYear = function( month, year ) {
 
 var data    = {
   presetColors : {
-    p1 : "rgba( 140, 198,  63, 0.9 )",
-    p2 : "rgba(   0, 146,  69, 0.9 )",
-    p3 : "rgba(  41, 171, 226, 0.9 )",
-    p4 : "rgba(  46,  49, 146, 0.9 )",
-    p5 : "rgba( 147,  39, 143, 0.9 )",
-    p6 : "rgba( 212,  20,  90, 0.9 )",
-    p7 : "rgba( 247, 147,  30, 0.9 )",
-    p8 : "rgba( 252, 238,  33, 0.9 )",
+    p1 : "rgba( 140, 198,  63, 0.5 )",
+    p2 : "rgba(   0, 146,  69, 0.5 )",
+    p3 : "rgba(  41, 171, 226, 0.5 )",
+    p4 : "rgba(  46,  49, 146, 0.5 )",
+    p5 : "rgba( 147,  39, 143, 0.5 )",
+    p6 : "rgba( 212,  20,  90, 0.5 )",
+    p7 : "rgba( 247, 147,  30, 0.5 )",
+    p8 : "rgba( 252, 238,  33, 0.5 )",
   },
   skillUsage : [
     { month : 10, year  : 2015, professional  : [ 'p1', 'p1', 'p3', 'p4', 'p4', 'p4', 'p4', 'p7', 'p8', 'p8' ], amateur : [] },
@@ -328,3 +328,6 @@ var data    = {
 var heatmap = new ResumeHeatmap( 'ResumeHeatmap', data, '.employment-detail', '.amateur-detail.range' );
 heatmap.draw();
 $( window ).resize( function() { eve( 'heatmap:resize', heatmap ); } );
+$( function () {
+  $( '.gallery a' ).lightbox();
+} );

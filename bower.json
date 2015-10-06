@@ -9,7 +9,8 @@
   "main": "src/index.html",
   "dependencies": {
     "bootstrap-sass": "*",
-    "raphael": "*"
+    "raphael": "*",
+    "responsive-lightbox": "*"
   },
   "moduleType": [],
   "license": "MIT",
