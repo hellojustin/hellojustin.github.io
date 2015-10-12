@@ -2,6 +2,7 @@
 
 var ResumeHeatmap = function ( selector, data, emplDetailsSelector, amateurDetailsSelector ) {
   this.presetColors      = data.presetColors;
+  this.skills            = data.skills;
   this.proSkillUse       = $.map( data.skillUsage, function( obj ) {
     return { month: obj.month, year: obj.year, data: obj.professional };
   });
@@ -18,47 +19,55 @@ var ResumeHeatmap = function ( selector, data, emplDetailsSelector, amateurDetai
 };
 
 ResumeHeatmap.prototype.measure = function() {
-  this.cellWidth         = this.element.width() * .031;
+  this.totalWidth        = this.element.width()
+
+  this.bracketWidth      = this.totalWidth * .20;
+  this.bracketRangeWidth = this.bracketWidth * .10;
+  this.bracketTailWidth  = this.bracketWidth * .65;
+  this.bracketSpace      = this.bracketWidth * .10
+
+  this.heatmapWidth      = this.totalWidth * .7;
+  this.cellWidth         = ( this.heatmapWidth / 10 ) * .9;
+  this.cellSpace         = ( this.heatmapWidth / 10 ) * .1;
+
   this.cellHeight        = this.cellWidth;
-  this.cellSpace         = this.cellWidth * .1;
   this.colWidth          = this.cellWidth + this.cellSpace;
   this.rowHeight         = this.cellHeight + this.cellSpace;
-  this.bracketRangeWidth = this.element.width() * .04;
-  this.bracketTailWidth  = this.bracketRangeWidth * 3;
-  this.bracketWidth      = this.bracketRangeWidth + this.bracketTailWidth;
-  this.proX              = this.bracketWidth + this.cellSpace*5;
+  this.proX              = this.bracketWidth;
   this.proHeight         = this.rowHeight * this.proSkillUse.length;
-  this.proWidth          = this.colWidth * 10;
-  this.labelX            = this.proX + this.proWidth + this.cellSpace*5
-  this.labelWidth        = this.element.width() * .11;
-  this.amateurX          = this.labelX + this.labelWidth + this.cellSpace*5;
-  this.amateurWidth      = this.colWidth * 5;
-  this.rightBracketX     = this.amateurX + this.amateurWidth + this.cellSpace*5;
-  this.fontSize          = this.element.width() * .04;
-  this.presentDate       = { month: 10, year: 2015 }
-  this.element.height( this.proHeight );
+  this.proWidth          = this.heatmapWidth;
+
+  this.labelWidth        = this.totalWidth * .1;
+  this.labelSpace        = this.labelWidth * .25;
+  this.labelX            = this.proX + this.heatmapWidth + this.labelSpace;
+  this.fontSize          = this.labelWidth * .5;
+
+  this.skillsFontSize    = 14;
+  this.skillsPadding     = this.skillsFontSize * .5
+  this.skillHeight       = this.skillsFontSize + this.skillsPadding*2
+  this.skillsHeight      = this.skills.length * this.skillHeight;
+
+  this.presentDate       = { month: 10, year: 2015 };
+  this.element.height( this.proHeight + this.skillsHeight );
   this.p.setSize( this.element.width(), this.element.parent().height() );
+
+  return this.totalWidth;
 };
 
 ResumeHeatmap.prototype.draw = function() {
-  this.measure();
+  if ( this.measure() > 50 ) {
+    this.legend = this.drawSkills( this.skills );
 
-  this.proSkillsHeatmap = this.drawRows( this.proSkillUse );
-  this.proSkillsHeatmap.attr({ stroke : 'none' });
-  this.proSkillsHeatmap.transform( "T" + this.proX + ",0" );
+    this.proSkillsHeatmap = this.drawRows( this.proSkillUse );
+    this.proSkillsHeatmap.attr({ stroke : 'none' });
+    this.proSkillsHeatmap.transform( "T" + this.proX + ",0" );
 
-  this.amateurSkillsHeatmap = this.drawRows( this.amateurSkillUse );
-  this.amateurSkillsHeatmap.attr({ stroke : 'none' });
-  this.amateurSkillsHeatmap.transform( "T" + this.amateurX + ",0" );
+    this.labels = this.drawYearLabels();
+    this.labels.transform( "T0," + this.skillsHeight );
 
-  this.labels = this.drawYearLabels();
-
-  this.jobBrackets = this.drawBrackets( this.emplDetailsEls );
-  this.jobBrackets.attr({ 'stroke' : 'rgba(  62,  96, 111, 1 )' });
-
-  this.amateurBrackets = this.drawBrackets( this.amateurDetailsEls );
-  this.amateurBrackets.attr({ 'stroke' : 'rgba(  62,  96, 111, 1 )' });
-  this.amateurBrackets.transform( "S-1,1T" + this.rightBracketX + ",0" );
+    this.jobBrackets = this.drawBrackets( this.emplDetailsEls );
+    this.jobBrackets.attr({ 'stroke' : 'rgba(  62,  96, 111, 1 )' });
+  }
 };
 
 ResumeHeatmap.prototype.debounce = function( callback, delay ) {
@@ -76,6 +85,27 @@ ResumeHeatmap.prototype.debounce = function( callback, delay ) {
 ResumeHeatmap.prototype.resize = function() {
   this.p.clear();
   this.draw();
+};
+
+ResumeHeatmap.prototype.drawSkills = function( skills ) {
+  this.p.setStart();
+  for ( var skillNum = 0; skillNum < skills.length; skillNum++ ) {
+    this.p.rect( this.proX,
+                 this.skillHeight * skillNum,
+                 this.heatmapWidth - this.cellSpace,
+                 this.skillHeight ).attr({
+      'fill'   : this.presetColors[ skills[skillNum].color ],
+      'stroke' : 'none'
+    });
+
+    this.p.text( ( this.heatmapWidth - this.cellSpace )/1.25,
+                 ( this.skillHeight * skillNum ) + this.skillsFontSize,
+                 skills[skillNum].name ).attr({
+      'font-size' : this.skillsFontSize,
+      'fill'      : 'rgba( 252, 255, 245, 1 )'
+    });
+  }
+  return this.p.setFinish();
 };
 
 ResumeHeatmap.prototype.drawRows = function( data, rowSize ) {
@@ -97,7 +127,7 @@ ResumeHeatmap.prototype.drawRow = function( num, data ) {
 ResumeHeatmap.prototype.drawCell = function( row, col, data ) {
   var color = this.presetColors[ data ],
       x     = col * ( this.cellHeight + this.cellSpace ),
-      y     = row * ( this.cellWidth  + this.cellSpace );
+      y     = row * ( this.cellWidth  + this.cellSpace ) + this.skillsHeight + this.cellSpace;
   this.p.rect( x, y, this.cellWidth, this.cellHeight ).attr({ fill : color });
 };
 
@@ -118,7 +148,7 @@ ResumeHeatmap.prototype.drawYearLabels = function() {
 ResumeHeatmap.prototype.drawYearLabel = function( row, year ) {
   var x     = this.labelX,
       y     = row * ( this.cellHeight + this.cellSpace ),
-      textX = x+this.cellWidth*1.75,
+      textX = x+this.cellWidth*0.7,
       textY = y-this.fontSize/2,
       text  = "'" + year.toString().slice( 2 );
   this.p.rect( x, y-1, this.labelWidth, 0.5 ).attr({
@@ -148,25 +178,25 @@ ResumeHeatmap.prototype.drawBracket = function( el ) {
       topY, height;
 
   if ( endRow === 0 ) {
-    topY   = this.cellHeight/2;
+    topY   = this.cellHeight/2 + this.skillsHeight;
     height = ( startRow - endRow ) * ( this.cellHeight + this.cellSpace );
   } else {
-    topY   = endRow * ( this.cellHeight + this.cellSpace ) + this.cellHeight/2;
+    topY   = endRow * ( this.cellHeight + this.cellSpace ) + this.cellHeight/2 + this.skillsHeight;
     height = ( startRow - endRow ) * ( this.cellHeight + this.cellSpace );
   }
 
   this.p.path().attr({
-    path : [ [ 'M', this.bracketWidth,     topY            ],
-             [ 'C', this.bracketTailWidth, topY,
-                    this.bracketWidth,     topY + height/2,
-                    this.bracketTailWidth, topY + height/2 ],
-             [ 'C', this.bracketWidth,     topY + height/2,
-                    this.bracketTailWidth, topY + height,
-                    this.bracketWidth,     topY + height   ],
-             [ 'M', 0,                     elY-0.5         ],
-             [ 'C', this.bracketTailWidth, elY-0.5,
-                    0,                     topY + height/2,
-                    this.bracketTailWidth, topY + height/2 ] ]
+    path : [ [ 'M', this.bracketWidth-this.bracketSpace,     topY            ],
+             [ 'C', this.bracketTailWidth,                   topY,
+                    this.bracketWidth-this.bracketSpace,     topY + height/2,
+                    this.bracketTailWidth,                   topY + height/2 ],
+             [ 'C', this.bracketWidth-this.bracketSpace,     topY + height/2,
+                    this.bracketTailWidth,                   topY + height,
+                    this.bracketWidth-this.bracketSpace,     topY + height   ],
+             [ 'M', 0,                                       elY-0.5         ],
+             [ 'C', this.bracketTailWidth,                   elY-0.5,
+                    0,                                       topY + height/2,
+                    this.bracketTailWidth,                   topY + height/2 ] ]
   });
 };
 
@@ -185,15 +215,25 @@ ResumeHeatmap.prototype.getRowFromMonthYear = function( month, year ) {
 
 var data    = {
   presetColors : {
-    p1 : "rgba( 140, 198,  63, 0.5 )",
-    p2 : "rgba(   0, 146,  69, 0.5 )",
-    p3 : "rgba(  41, 171, 226, 0.5 )",
-    p4 : "rgba(  46,  49, 146, 0.5 )",
-    p5 : "rgba( 147,  39, 143, 0.5 )",
-    p6 : "rgba( 212,  20,  90, 0.5 )",
-    p7 : "rgba( 247, 147,  30, 0.5 )",
-    p8 : "rgba( 252, 238,  33, 0.5 )",
+    p1 : "rgba( 140, 198,  63, 0.75 )",
+    p2 : "rgba(   0, 146,  69, 0.75 )",
+    p3 : "rgba(  41, 171, 226, 0.75 )",
+    p4 : "rgba(  46,  49, 146, 0.75 )",
+    p5 : "rgba( 147,  39, 143, 0.75 )",
+    p6 : "rgba( 212,  20,  90, 0.75 )",
+    p7 : "rgba( 247, 147,  30, 0.75 )",
+    p8 : "rgba( 224, 212,  35, 0.75 )",
   },
+  skills : [
+    { name : "Hands-on Development", color : 'p1' },
+    { name : "Technical Leadership", color : 'p2' },
+    { name : "Project Management",   color : 'p3' },
+    { name : "Product Management",   color : 'p4' },
+    { name : "People Management",    color : 'p5' },
+    { name : "Interaction Design",   color : 'p6' },
+    { name : "Visual Design",        color : 'p7' },
+    { name : "Marketing",            color : 'p8' }
+  ],
   skillUsage : [
     { month : 10, year  : 2015, professional  : [ 'p1', 'p1', 'p3', 'p4', 'p4', 'p4', 'p4', 'p7', 'p8', 'p8' ], amateur : [] },
     { month :  9, year  : 2015, professional  : [ 'p1', 'p1', 'p2', 'p3', 'p4', 'p4', 'p4', 'p5', 'p6', 'p8' ], amateur : [] },
