@@ -5803,6 +5803,8 @@ button.close {
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   letter-spacing: 0.03rem; }
+  .content > section {
+    margin: 8rem 0; }
 
 .page-header {
   text-align: center;
@@ -5813,8 +5815,7 @@ button.close {
     color: #7f7f7f; }
 
 .mugshot-pie {
-  height: 40rem;
-  width: 80rem; }
+  height: 35rem; }
 
 .personal-statement {
   font-family: "Bad Script", cursive;
@@ -5824,5 +5825,51 @@ button.close {
   .personal-statement p {
     margin: 0 auto;
     max-width: 60rem; }
+
+.experience-etc > div {
+  vertical-align: top;
+  display: inline-block;
+  width: 32%; }
+.experience-etc .employment-detail {
+  position: relative;
+  background: #F6F6F6;
+  margin-bottom: 5rem;
+  padding: 2rem; }
+  .experience-etc .employment-detail:before, .experience-etc .employment-detail:after {
+    position: absolute;
+    width: 49%;
+    height: 10px;
+    content: " ";
+    left: 1rem;
+    bottom: 0.75rem;
+    background: transparent;
+    -webkit-transform: skew(-5deg) rotate(-5deg);
+    -moz-transform: skew(-5deg) rotate(-5deg);
+    -ms-transform: skew(-5deg) rotate(-5deg);
+    -o-transform: skew(-5deg) rotate(-5deg);
+    transform: skew(-5deg) rotate(-5deg);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: -1; }
+  .experience-etc .employment-detail:after {
+    left: auto;
+    right: 1rem;
+    -webkit-transform: skew(5deg) rotate(5deg);
+    -moz-transform: skew(5deg) rotate(5deg);
+    -ms-transform: skew(5deg) rotate(5deg);
+    -o-transform: skew(5deg) rotate(5deg);
+    transform: skew(5deg) rotate(5deg); }
+.experience-etc .employment-detail-header {
+  margin-bottom: 2rem; }
+.experience-etc .logo {
+  height: 2.5rem; }
+.experience-etc .title {
+  font-size: 2rem;
+  color: #2e3192; }
+.experience-etc .tenure {
+  font-size: 1.5rem;
+  color: #999999;
+  font-weight: lighter; }
 
 /*# sourceMappingURL=main.css.map */

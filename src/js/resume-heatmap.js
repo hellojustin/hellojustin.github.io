@@ -1,25 +1,22 @@
 "use strict";
 
-var ResumeHeatmap = function ( selector, data, emplDetailsSelector, amateurDetailsSelector ) {
+var ResumeHeatmap = function ( selector, data, emplDetailsSelector ) {
+  this.selector          = selector;
   this.presetColors      = data.presetColors;
   this.skills            = data.skills;
   this.proSkillUse       = $.map( data.skillUsage, function( obj ) {
     return { month: obj.month, year: obj.year, data: obj.professional };
   });
-  this.amateurSkillUse   = $.map( data.skillUsage, function( obj ) {
-    return { month: obj.month, year: obj.year, data: obj.amateur };
-  });
-  this.selector          = selector;
-  this.element           = $( '#' + this.selector );
+
+  this.el                = $( this.selector ).attr( 'id', 'ResumeHeatmap' );
   this.emplDetailsEls    = $( emplDetailsSelector );
-  this.amateurDetailsEls = $( amateurDetailsSelector );
-  this.p                 = Raphael( this.selector );
+  this.p                 = Raphael( 'ResumeHeatmap' );
 
   eve.on( 'heatmap:resize', this.debounce( this.resize, 200 ) );
 };
 
 ResumeHeatmap.prototype.measure = function() {
-  this.totalWidth        = this.element.width()
+  this.totalWidth        = this.el.width()
 
   this.bracketWidth      = this.totalWidth * .20;
   this.bracketRangeWidth = this.bracketWidth * .10;
@@ -48,8 +45,8 @@ ResumeHeatmap.prototype.measure = function() {
   this.skillsHeight      = this.skills.length * this.skillHeight;
 
   this.presentDate       = { month: 10, year: 2015 };
-  this.element.height( this.proHeight + this.skillsHeight );
-  this.p.setSize( this.element.width(), this.element.parent().height() );
+  this.el.height( this.proHeight + this.skillsHeight );
+  this.p.setSize( this.el.width(), this.el.parent().height() );
 
   return this.totalWidth;
 };
@@ -61,9 +58,6 @@ ResumeHeatmap.prototype.draw = function() {
     this.proSkillsHeatmap = this.drawRows( this.proSkillUse );
     this.proSkillsHeatmap.attr({ stroke : 'none' });
     this.proSkillsHeatmap.transform( "T" + this.proX + ",0" );
-
-    this.labels = this.drawYearLabels();
-    this.labels.transform( "T0," + this.skillsHeight );
 
     this.jobBrackets = this.drawBrackets( this.emplDetailsEls );
     this.jobBrackets.attr({ 'stroke' : 'rgba(  62,  96, 111, 1 )' });
@@ -131,36 +125,6 @@ ResumeHeatmap.prototype.drawCell = function( row, col, data ) {
   this.p.rect( x, y, this.cellWidth, this.cellHeight ).attr({ fill : color });
 };
 
-ResumeHeatmap.prototype.drawYearLabels = function() {
-  var currRowYear = 0,
-      nextRowYear = 0;
-  this.p.setStart();
-  for ( var rowNum = 0; rowNum < this.proSkillUse.length-1; rowNum++ ) {
-    if ( currRowYear != nextRowYear ) {
-      this.drawYearLabel( rowNum, currRowYear );
-    }
-    currRowYear = this.proSkillUse[rowNum].year;
-    nextRowYear = this.proSkillUse[rowNum+1].year;
-  }
-  return this.p.setFinish();
-};
-
-ResumeHeatmap.prototype.drawYearLabel = function( row, year ) {
-  var x     = this.labelX,
-      y     = row * ( this.cellHeight + this.cellSpace ),
-      textX = x+this.cellWidth*0.7,
-      textY = y-this.fontSize/2,
-      text  = "'" + year.toString().slice( 2 );
-  this.p.rect( x, y-1, this.labelWidth, 0.5 ).attr({
-    'fill'   : 'none',
-    'stroke' : 'rgba( 209, 219, 189, 1 )'
-  });
-  this.p.text( textX, textY, text ).attr({
-    'font-size' : this.fontSize,
-    'fill'      : 'rgba( 209, 219, 189, 1 )'
-  });
-};
-
 ResumeHeatmap.prototype.drawBrackets = function( elements ) {
   this.p.setStart();
   for ( var i = 0; i < elements.length; i++ ) {
@@ -213,7 +177,7 @@ ResumeHeatmap.prototype.getRowFromMonthYear = function( month, year ) {
   }
 };
 
-var heatmap = new ResumeHeatmap( 'ResumeHeatmap', data, '.employment-detail', '.amateur-detail.range' );
+var heatmap = new ResumeHeatmap( '.resume-heatmap', data, '.employment-detail' );
 heatmap.draw();
 $( window ).resize( function() { eve( 'heatmap:resize', heatmap ); } );
 $( function () {
