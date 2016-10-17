@@ -1,181 +1,34 @@
-@import '../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap'
 @import 'colors'
 @import 'helpers'
 
-body
-  background-color     : $main-bg-color
-  color                : $main-p-color
+.content
+  margin:         0 auto
+  max-width:      100rem
+  font-family:    'Open Sans', sans-serif
+  font-weight:    lighter
+  letter-spacing: 0.03rem
 
-header, section
-  padding              : 0 1rem 1rem
-
-ul
-  padding-left         : 1.6rem
-
-p, ul
-  @include               at-lg
-    font-size          : 110%
-  @media                 print
-    font-size          : 75%
-
-#introduction
-  padding              : 2rem 8%
-  background-color     : $header-bg-color
-  color                : $header-h-color
-  text-align           : center
-  @include               at-sm
-    text-align         : left
-  @media                 print
-    text-align         : left
-
-  .mugshot
-    height             : 18rem
-    @media print
-      height           : 8rem
-
-  .round-img
-    border             : 1rem solid $turquoise
-    border-radius      : 50%
-    @media               print
-      border           : .1rem solid black
-
-  .mug
-    display            : inline-block
-    vertical-align     : middle
-    @include             at-sm
-      margin-right     : 3rem
-    @media               print
-      margin-right     : 3rem
-
-  .headline
-    display            : inline-block
-    vertical-align     : middle
+.page-header
+  text-align:     center
+  border:         0
 
   .name
-    @media               print
-      font-size        : 2rem
-      margin-bottom    : 0.5rem
+    color:        $main-h-color
 
-  .title
-    font-size          : 2rem
-    @media               print
-      margin-top       : 0.5rem
-      font-size        : 1rem
+  .headline
+    color:        $main-subheading-color
 
-#education
-  padding              : 2rem 8%
-  background-color     : $header-h-color
-  color                : $main-p-color
 
-#experience,
-#education
-  @include               make-row()
-  margin-right         : 0
-  padding              : 2rem 8%
-  @media                 print
-    padding-top        : 1rem
-    padding-bottom     : 0
-  & > *
-    display            : inline-block
-    vertical-align     : top
-  .employment-details
-    @include             make-xs-column( 12 )
-    @include             make-sm-column( 7 )
-    @include             make-md-column( 8.5 )
-    @include             make-lg-column( 9 )
-    position           : relative
-    padding-right      : 0
-  .education-details
-    @include             make-xs-column( 12 )
-    position           : relative
-  .heatmap
-    display          : none
-    @include             at-sm()
-      display          : inline-block
-    @include             make-sm-column( 5 )
-    @include             make-md-column( 3.5 )
-    @include             make-lg-column( 3 )
-    height             : 100%
-    padding-left       : 0
+.mugshot-pie
+  height:        40rem
+  width:         80rem
 
-.details-header h2
-  color                : $turquoise
-  font-size            : 2rem
-  font-weight          : 200
-  text-transform       : uppercase
-  margin-top           : 0
-  padding              : 3rem 1rem 1rem
-  @media                 print
-    font-size          : 1.5rem
-    padding            : 0
-    margin             : 0.5rem
-.details-header.education-details-header h2
-  color                : $main-p-color
+.personal-statement
+  font-family:   'Bad Script', cursive
+  font-size:     2rem
+  color:         $main-h-color
+  text-align:    center
 
-.employment-detail,
-.education-detail
-  margin-bottom        : 4rem
-  @include             at-lg
-    margin-bottom      : 8rem
-  @media print
-    margin-bottom      : 1rem
-  .employment-detail-header,
-  .education-detail-header
-    position           : relative
-    color              : $royal
-    & > *
-      display          : inline-block
-      position         : absolute
-      bottom           : 0
-      font-weight      : 300
-      width            : 50%
-  .employment-detail-header
-    height             : 6rem
-    border-bottom      : 1px solid $royal
-    @media               print
-      height           : 4rem
-  .education-detail-header
-    height             : 12rem
-    border-bottom      : 1px solid $main-p-color
-    @media               print
-      height           : 8rem
-  .title
-    font-size          : 1.8rem
-    font-weight        : 200
-    margin-top         : 0.9rem
-    @media               print
-      font-size        : 1.3rem
-  .company,
-  .school
-    width              : auto
-    max-width          : 60%
-    margin-bottom      : 1rem
-  .company
-    height             : 3rem
-    @media               print
-      height           : 2rem
-  .school
-    height             : 8rem
-    @media               print
-      height           : 6rem
-  .tenure
-    font-size          : 1rem
-    @include             at-sm
-      font-size        : 1.5rem
-    right              : 1rem
-    text-align         : right
-    color              : $main-p-color
-  .gallery
-    @media print
-      display          : none
-    text-align         : center
-    .thumb
-      height           : 4.5rem
-      display          : inline-block
-      border-radius    : 1rem
-      margin           : 0.25rem
-
-.lightbox__caption
-  min-height           : 15%
-  @media                 print
-    display            : none
+  p
+    margin:      0 auto
+    max-width:   60rem
