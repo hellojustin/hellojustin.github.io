@@ -38,11 +38,11 @@ MugshotPie.prototype.arcDefinition = function( grid, sectionPadding ) {
 MugshotPie.prototype.pointerDefinition = function( center, radius, padding ) {
   return function( pieSection ) {
     var sectionMidpoint = pieSection.getPointAtLength( pieSection.getTotalLength() / 2 ),
-        sectionPadding  = (sectionMidpoint.x > center.x) ? padding + Math.pow(Math.abs(sectionMidpoint.y - radius), 0.70) : -padding - Math.pow(Math.abs(sectionMidpoint.y - radius), 0.70),
+        sectionPadding  = (sectionMidpoint.x > center.x) ? padding + Math.pow(Math.abs(sectionMidpoint.y - radius), 0.75) : -padding - Math.pow(Math.abs(sectionMidpoint.y - radius), 0.75),
         labelLocation   = (sectionMidpoint.x > center.x) ? center.x + radius + 40 : center.x - radius - 40,
         p = [];
 
-    p = p.concat( [ "M", sectionMidpoint.x + sectionPadding, sectionMidpoint.y ] );
+    p = p.concat( [ "M", sectionMidpoint.x, sectionMidpoint.y ] );
     p = p.concat( [ "L", labelLocation, sectionMidpoint.y ] );
 
     return { path : p };
@@ -76,11 +76,11 @@ MugshotPie.prototype.draw = function() {
   this.grid.point( 'arcStart', 1.57 );
 
   this.drawSection( 'Technical Leadership', 30, 100, '#009245' );
-  this.drawSection( 'Hands-on Development', 25, 100, '#8CC63F' );
+  this.drawSection( 'Hands-on Development', 20, 100, '#8CC63F' );
   this.drawSection( 'Product Leadership', 20, 100, '#2E3192' );
   this.drawSection( 'Project Leadership', 15, 100, '#29ABE2' );
-  this.drawSection( 'People Leadership', 5, 100, '#93278F' );
-  this.drawSection( 'UX Design', 5, 100, '#D4145A' );
+  this.drawSection( 'People Leadership', 10, 100, '#93278F' );
+  this.drawSection( 'UX Research & Design', 5, 100, '#D4145A' );
 
   this.drawMugshot( this.mugshotUrl );
 };
@@ -101,6 +101,13 @@ MugshotPie.prototype.drawSection = function( name, numerator, denominator, color
     'fill'         : '#999999',
     'font-size'    : '14px',
     'font-family'  : "'Open Sans', sans-serif"
+  } );
+  var pieSectionLabelDot = this.p.circle().attr( {
+    'cx'           : pieSectionPointer.getPointAtLength(0).x,
+    'cy'           : pieSectionPointer.getPointAtLength(0).y,
+    'r'            : 3,
+    'fill'         : '#999999',
+    'stroke-width' : 0
   } );
   return pieSection;
 };

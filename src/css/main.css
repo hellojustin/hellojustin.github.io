@@ -5799,7 +5799,7 @@ button.close {
     display: none !important; } }
 .content {
   margin: 0 auto;
-  max-width: 100rem;
+  width: 100rem;
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   letter-spacing: 0.03rem; }
@@ -5810,9 +5810,11 @@ button.close {
   text-align: center;
   border: 0; }
   .page-header .name {
-    color: #2e3192; }
+    color: #2e3192;
+    font-size: 4.25rem; }
   .page-header .headline {
-    color: #7f7f7f; }
+    color: #7f7f7f;
+    font-size: 1.75rem; }
 
 .mugshot-pie {
   height: 35rem; }
@@ -5823,53 +5825,67 @@ button.close {
   color: #2e3192;
   text-align: center; }
   .personal-statement p {
-    margin: 0 auto;
+    margin: 1.5rem auto;
     max-width: 60rem; }
 
-.experience-etc > div {
-  vertical-align: top;
-  display: inline-block;
-  width: 32%; }
-.experience-etc .employment-detail {
-  position: relative;
-  background: #F6F6F6;
-  margin-bottom: 5rem;
-  padding: 2rem; }
-  .experience-etc .employment-detail:before, .experience-etc .employment-detail:after {
-    position: absolute;
-    width: 49%;
-    height: 10px;
-    content: " ";
-    left: 1rem;
-    bottom: 0.75rem;
-    background: transparent;
-    -webkit-transform: skew(-5deg) rotate(-5deg);
-    -moz-transform: skew(-5deg) rotate(-5deg);
-    -ms-transform: skew(-5deg) rotate(-5deg);
-    -o-transform: skew(-5deg) rotate(-5deg);
-    transform: skew(-5deg) rotate(-5deg);
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    z-index: -1; }
-  .experience-etc .employment-detail:after {
-    left: auto;
-    right: 1rem;
-    -webkit-transform: skew(5deg) rotate(5deg);
-    -moz-transform: skew(5deg) rotate(5deg);
-    -ms-transform: skew(5deg) rotate(5deg);
-    -o-transform: skew(5deg) rotate(5deg);
-    transform: skew(5deg) rotate(5deg); }
-.experience-etc .employment-detail-header {
-  margin-bottom: 2rem; }
-.experience-etc .logo {
-  height: 2.5rem; }
-.experience-etc .title {
-  font-size: 2rem;
-  color: #2e3192; }
-.experience-etc .tenure {
-  font-size: 1.5rem;
-  color: #999999;
-  font-weight: lighter; }
+.experience-etc {
+  margin: 0 auto; }
+  .experience-etc > div {
+    vertical-align: top;
+    display: inline-block;
+    width: 33%; }
+  .experience-etc .employment-detail, .experience-etc .extra-detail {
+    position: relative;
+    background: #F6F6F6;
+    margin-bottom: 5rem;
+    padding: 2rem; }
+    .experience-etc .employment-detail:before, .experience-etc .employment-detail:after, .experience-etc .extra-detail:before, .experience-etc .extra-detail:after {
+      position: absolute;
+      width: 49%;
+      height: 10px;
+      content: " ";
+      left: 1rem;
+      bottom: 0.75rem;
+      background: transparent;
+      -webkit-transform: skew(-5deg) rotate(-5deg);
+      -moz-transform: skew(-5deg) rotate(-5deg);
+      -ms-transform: skew(-5deg) rotate(-5deg);
+      -o-transform: skew(-5deg) rotate(-5deg);
+      transform: skew(-5deg) rotate(-3deg);
+      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      z-index: -1; }
+    .experience-etc .employment-detail:after, .experience-etc .extra-detail:after {
+      left: auto;
+      right: 1rem;
+      -webkit-transform: skew(5deg) rotate(5deg);
+      -moz-transform: skew(5deg) rotate(5deg);
+      -ms-transform: skew(5deg) rotate(5deg);
+      -o-transform: skew(5deg) rotate(5deg);
+      transform: skew(5deg) rotate(3deg); }
+    .experience-etc .employment-detail.yellow, .experience-etc .extra-detail.yellow {
+      background: #FFF2CC; }
+    .experience-etc .employment-detail.blue, .experience-etc .extra-detail.blue {
+      background: #CFFDFF; }
+    .experience-etc .employment-detail.green, .experience-etc .extra-detail.green {
+      background: #DDFFCF; }
+  .experience-etc ul {
+    padding-left: 2rem; }
+  .experience-etc .employment-detail-header, .experience-etc .extra-detail-header {
+    margin-bottom: 2rem; }
+  .experience-etc .logo {
+    max-height: 2.5rem; }
+  .experience-etc .title {
+    font-size: 2rem;
+    color: #2e3192; }
+  .experience-etc .tenure {
+    font-size: 1.5rem;
+    color: #999999;
+    font-weight: lighter; }
+  .experience-etc .extra-detail-header h3 {
+    color: #009245; }
+  .experience-etc .extra-detail-body h4 {
+    margin-top: 3rem; }
 
 /*# sourceMappingURL=main.css.map */

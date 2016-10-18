@@ -23,7 +23,7 @@ ResumeHeatmap.prototype.measure = function() {
   this.bracketTailWidth  = this.bracketWidth * .65;
   this.bracketSpace      = this.bracketWidth * .10
 
-  this.heatmapWidth      = this.totalWidth * .7;
+  this.heatmapWidth      = this.totalWidth - this.bracketWidth * 2;
   this.cellWidth         = ( this.heatmapWidth / 10 ) * .9;
   this.cellSpace         = ( this.heatmapWidth / 10 ) * .1;
 
@@ -44,7 +44,7 @@ ResumeHeatmap.prototype.measure = function() {
   this.skillHeight       = this.skillsFontSize + this.skillsPadding*2
   this.skillsHeight      = this.skills.length * this.skillHeight;
 
-  this.presentDate       = { month: 10, year: 2015 };
+  this.presentDate       = { month: 10, year: 2016 };
   this.el.height( this.proHeight + this.skillsHeight );
   this.p.setSize( this.el.width(), this.el.parent().height() );
 
@@ -60,7 +60,7 @@ ResumeHeatmap.prototype.draw = function() {
     this.proSkillsHeatmap.transform( "T" + this.proX + ",0" );
 
     this.jobBrackets = this.drawBrackets( this.emplDetailsEls );
-    this.jobBrackets.attr({ 'stroke' : 'rgba(  62,  96, 111, 1 )' });
+    this.jobBrackets.attr({ 'stroke' : '#999999' });
   }
 };
 
@@ -92,11 +92,13 @@ ResumeHeatmap.prototype.drawSkills = function( skills ) {
       'stroke' : 'none'
     });
 
-    this.p.text( ( this.heatmapWidth - this.cellSpace )/1.25,
-                 ( this.skillHeight * skillNum ) + this.skillsFontSize,
-                 skills[skillNum].name ).attr({
-      'font-size' : this.skillsFontSize,
-      'fill'      : 'rgba( 252, 255, 245, 1 )'
+    this.p.text().attr({
+      'x'           : this.proX + this.heatmapWidth / 2,
+      'y'           : this.skillHeight * skillNum + this.skillsFontSize,
+      'text'        : skills[skillNum].name,
+      'font-size'   : this.skillsFontSize,
+      'fill'        : 'rgba( 252, 255, 245, 1 )',
+      'text-anchor' : 'middle'
     });
   }
   return this.p.setFinish();
@@ -138,8 +140,9 @@ ResumeHeatmap.prototype.drawBracket = function( el ) {
       data     = $el.data(),
       startRow = this.getRowFromMonthYear( data.startMonth, data.startYear ),
       endRow   = this.getRowFromMonthYear( data.endMonth,   data.endYear   ),
-      elY      = $el.position().top + $el.find( 'header' ).outerHeight(),
-      topY, height;
+      parentY  = $el.parent().position().top,
+      elY      = $el.position().top - parentY + $el.height()/2,
+      topY, height, path;
 
   if ( endRow === 0 ) {
     topY   = this.cellHeight/2 + this.skillsHeight;
@@ -149,7 +152,7 @@ ResumeHeatmap.prototype.drawBracket = function( el ) {
     height = ( startRow - endRow ) * ( this.cellHeight + this.cellSpace );
   }
 
-  this.p.path().attr({
+  path = this.p.path().attr({
     path : [ [ 'M', this.bracketWidth-this.bracketSpace,     topY            ],
              [ 'C', this.bracketTailWidth,                   topY,
                     this.bracketWidth-this.bracketSpace,     topY + height/2,
@@ -162,6 +165,12 @@ ResumeHeatmap.prototype.drawBracket = function( el ) {
                     0,                                       topY + height/2,
                     this.bracketTailWidth,                   topY + height/2 ] ]
   });
+
+  // if the element is to the right of the heatmap...
+  if ($el.position().left > this.el.position().left ) {
+    var xTransform = this.proX + this.heatmapWidth + this.bracketSpace;
+    path.transform( "T" + xTransform + ",0, S-1,1" );
+  }
 };
 
 ResumeHeatmap.prototype.getRowFromMonthYear = function( month, year ) {

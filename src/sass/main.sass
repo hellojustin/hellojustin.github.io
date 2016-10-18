@@ -3,7 +3,7 @@
 
 .content
   margin:         0 auto
-  max-width:      100rem
+  width:          100rem
   font-family:    'Open Sans', sans-serif
   font-weight:    lighter
   letter-spacing: 0.03rem
@@ -17,9 +17,11 @@
 
   .name
     color:        $main-h-color
+    font-size:    4.25rem
 
   .headline
     color:        $main-subheading-color
+    font-size:    1.75rem
 
 
 .mugshot-pie
@@ -32,17 +34,18 @@
   text-align:    center
 
   p
-    margin:      0 auto
+    margin:      1.5rem auto
     max-width:   60rem
 
 .experience-etc
+  margin: 0 auto
 
   & > div
     vertical-align: top
     display: inline-block
-    width:         32%
+    width:         33%
 
-  .employment-detail
+  .employment-detail, .extra-detail
     position: relative
     background: #F6F6F6
     margin-bottom: 5rem
@@ -60,7 +63,7 @@
       -moz-transform: skew(-5deg) rotate(-5deg)
       -ms-transform: skew(-5deg) rotate(-5deg)
       -o-transform: skew(-5deg) rotate(-5deg)
-      transform: skew(-5deg) rotate(-5deg)
+      transform: skew(-5deg) rotate(-3deg)
       -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
       -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
@@ -73,13 +76,25 @@
       -moz-transform: skew(5deg) rotate(5deg)
       -ms-transform: skew(5deg) rotate(5deg)
       -o-transform: skew(5deg) rotate(5deg)
-      transform: skew(5deg) rotate(5deg)
+      transform: skew(5deg) rotate(3deg)
 
-  .employment-detail-header
+    &.yellow
+      background: #FFF2CC
+
+    &.blue
+      background: #CFFDFF
+
+    &.green
+      background: #DDFFCF
+
+  ul
+    padding-left: 2rem
+
+  .employment-detail-header, .extra-detail-header
     margin-bottom: 2rem
 
   .logo
-    height: 2.5rem
+    max-height: 2.5rem
 
   .title
     font-size: 2rem
@@ -89,3 +104,11 @@
     font-size: 1.5rem
     color: $gray-60
     font-weight: lighter
+
+  .extra-detail-header
+    h3
+      color: $deep-green
+
+  .extra-detail-body
+    h4
+      margin-top: 3rem
