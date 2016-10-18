@@ -9,16 +9,16 @@ module.exports = function( grunt ) {
         },
         files : [{
           expand : true,
-          cwd    : 'src/sass',
+          cwd    : 'sass',
           src    : ['**/*.sass'],
-          dest   : 'src/css',
+          dest   : 'css',
           ext    : '.css'
         }]
       }
     },
     watch : {
       styles : {
-        files : [ 'src/sass/**/*.sass' ],
+        files : [ 'sass/**/*.sass' ],
         tasks : [ 'sass' ]
       }
     }
