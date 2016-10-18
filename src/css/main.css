@@ -5884,7 +5884,7 @@ button.close {
     color: #999999;
     font-weight: lighter; }
   .experience-etc .extra-detail-header h3 {
-    color: #009245; }
+    color: rgba(0, 0, 0, 0.5); }
   .experience-etc .extra-detail-body h4 {
     margin-top: 3rem; }
 
