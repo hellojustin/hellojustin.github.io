@@ -5806,6 +5806,18 @@ button.close {
   letter-spacing: 0.03rem; }
   .content > section {
     margin: 8rem 0; }
+  .content .section-name, .content .name {
+    margin: 3rem auto;
+    text-align: center;
+    font-weight: lighter;
+    font-size: 4rem;
+    color: transparent;
+    background-color: #b2b2b2;
+    text-transform: uppercase;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text; }
 
 .page-header {
   text-align: center;
@@ -5813,11 +5825,13 @@ button.close {
   padding: 0;
   margin-bottom: 0; }
   .page-header .name {
-    color: #2e3192;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
+    background-color: #1a31ba;
     font-size: 4.25rem; }
   .page-header .headline {
-    color: #7f7f7f;
-    font-size: 1.75rem; }
+    font-family: "Bad Script", cursive;
+    font-size: 2.5rem;
+    color: #b2b2b2; }
   .page-header .social {
     margin: 2rem auto 0; }
     .page-header .social .icon {
@@ -5828,10 +5842,10 @@ button.close {
       .page-header .social .icon a {
         display: block; }
       .page-header .social .icon svg .background {
-        fill: #7f7f7f;
+        fill: #b2b2b2;
         transition: fill 0.25s; }
       .page-header .social .icon svg:hover .background {
-        fill: #2e3192; }
+        fill: #1a31ba; }
       .page-header .social .icon svg .foreground {
         fill: #fff; }
 
@@ -5840,8 +5854,9 @@ button.close {
 
 .personal-statement {
   font-family: "Bad Script", cursive;
+  font-weight: bold;
   font-size: 2rem;
-  color: #2e3192;
+  color: #b2b2b2;
   text-align: center; }
   .personal-statement p {
     margin: 1.5rem auto;
@@ -5853,59 +5868,74 @@ button.close {
     vertical-align: top;
     display: inline-block;
     width: 33%; }
-  .experience-etc .employment-detail, .experience-etc .extra-detail {
-    position: relative;
-    background: #F6F6F6;
-    margin-bottom: 5rem;
-    padding: 2rem; }
-    .experience-etc .employment-detail:before, .experience-etc .employment-detail:after, .experience-etc .extra-detail:before, .experience-etc .extra-detail:after {
-      position: absolute;
-      width: 49%;
-      height: 10px;
-      content: " ";
-      left: 1rem;
-      bottom: 0.75rem;
-      background: transparent;
-      -webkit-transform: skew(-5deg) rotate(-5deg);
-      -moz-transform: skew(-5deg) rotate(-5deg);
-      -ms-transform: skew(-5deg) rotate(-5deg);
-      -o-transform: skew(-5deg) rotate(-5deg);
-      transform: skew(-5deg) rotate(-3deg);
-      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-      z-index: -1; }
-    .experience-etc .employment-detail:after, .experience-etc .extra-detail:after {
-      left: auto;
-      right: 1rem;
-      -webkit-transform: skew(5deg) rotate(5deg);
-      -moz-transform: skew(5deg) rotate(5deg);
-      -ms-transform: skew(5deg) rotate(5deg);
-      -o-transform: skew(5deg) rotate(5deg);
-      transform: skew(5deg) rotate(3deg); }
-    .experience-etc .employment-detail.yellow, .experience-etc .extra-detail.yellow {
-      background: #FFF2CC; }
-    .experience-etc .employment-detail.blue, .experience-etc .extra-detail.blue {
-      background: #CFFDFF; }
-    .experience-etc .employment-detail.green, .experience-etc .extra-detail.green {
-      background: #DDFFCF; }
-  .experience-etc ul {
-    padding-left: 2rem; }
-  .experience-etc .employment-detail-header, .experience-etc .extra-detail-header {
-    margin-bottom: 2rem; }
-  .experience-etc .logo {
-    max-height: 2.5rem; }
-  .experience-etc .title {
-    font-size: 2rem;
-    color: #2e3192; }
-  .experience-etc .tenure {
-    font-size: 1.5rem;
-    color: #999999;
-    font-weight: lighter; }
-  .experience-etc .extra-detail-header h3 {
-    margin: 1rem 0;
-    color: rgba(0, 0, 0, 0.5); }
-  .experience-etc .extra-detail-body h4 {
-    margin-top: 3rem; }
+
+.employment-detail, .extra-detail {
+  position: relative;
+  background: #F6F6F6;
+  margin-bottom: 5rem;
+  padding: 2rem; }
+  .employment-detail:before, .employment-detail:after, .extra-detail:before, .extra-detail:after {
+    position: absolute;
+    width: 49%;
+    height: 10px;
+    content: " ";
+    left: 1rem;
+    bottom: 0.75rem;
+    background: transparent;
+    -webkit-transform: skew(-5deg) rotate(-5deg);
+    -moz-transform: skew(-5deg) rotate(-5deg);
+    -ms-transform: skew(-5deg) rotate(-5deg);
+    -o-transform: skew(-5deg) rotate(-5deg);
+    transform: skew(-5deg) rotate(-3deg);
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    z-index: -1; }
+  .employment-detail:after, .extra-detail:after {
+    left: auto;
+    right: 1rem;
+    -webkit-transform: skew(5deg) rotate(5deg);
+    -moz-transform: skew(5deg) rotate(5deg);
+    -ms-transform: skew(5deg) rotate(5deg);
+    -o-transform: skew(5deg) rotate(5deg);
+    transform: skew(5deg) rotate(3deg); }
+  .employment-detail.yellow, .extra-detail.yellow {
+    background: #FFF2CC; }
+  .employment-detail.blue, .extra-detail.blue {
+    background: #CFFDFF; }
+  .employment-detail.green, .extra-detail.green {
+    background: #DDFFCF; }
+
+.employment-detail ul, .extra-detail ul, .education-detail ul {
+  padding-left: 2rem; }
+.employment-detail .employment-detail-header, .employment-detail .extra-detail-header, .extra-detail .employment-detail-header, .extra-detail .extra-detail-header, .education-detail .employment-detail-header, .education-detail .extra-detail-header {
+  margin-bottom: 2rem; }
+.employment-detail .logo, .extra-detail .logo, .education-detail .logo {
+  max-height: 2.5rem; }
+.employment-detail .title, .extra-detail .title, .education-detail .title {
+  font-size: 2rem;
+  color: #1a31ba; }
+.employment-detail .tenure, .extra-detail .tenure, .education-detail .tenure {
+  font-size: 1.5rem;
+  color: #999999;
+  font-weight: lighter; }
+.employment-detail .extra-detail-header h3, .extra-detail .extra-detail-header h3, .education-detail .extra-detail-header h3 {
+  margin: 1rem 0;
+  color: rgba(0, 0, 0, 0.5); }
+.employment-detail .extra-detail-body h4, .extra-detail .extra-detail-body h4, .education-detail .extra-detail-body h4 {
+  margin-top: 3rem; }
+
+.education-detail {
+  width: 80%;
+  margin: 0 auto; }
+  .education-detail .logo {
+    max-height: 5rem; }
+
+.contact {
+  text-align: center; }
+  .contact p {
+    font-family: "Bad Script", cursive;
+    font-size: 2.5rem;
+    color: #b2b2b2; }
 
 /*# sourceMappingURL=main.css.map */

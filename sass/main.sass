@@ -12,6 +12,19 @@
   & > section
     margin:      8rem 0
 
+  .section-name, .name
+    margin:      3rem auto
+    text-align:  center
+    font-weight: lighter
+    font-size:   4rem
+    color:       transparent
+    background-color: $main-subheading-color
+    text-transform: uppercase
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8)
+    -webkit-background-clip: text
+    -moz-background-clip: text
+    background-clip: text
+
 .page-header
   text-align:     center
   border:         0
@@ -19,12 +32,14 @@
   margin-bottom:  0
 
   .name
-    color:        $main-h-color
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6)
+    background-color: $main-h-color
     font-size:    4.25rem
 
   .headline
-    color:        $main-subheading-color
-    font-size:    1.75rem
+    font-family:   'Bad Script', cursive
+    font-size:     2.5rem
+    color:         $main-subheading-color
 
   .social
     margin:       2rem auto 0
@@ -54,8 +69,9 @@
 
 .personal-statement
   font-family:   'Bad Script', cursive
+  font-weight:   bold
   font-size:     2rem
-  color:         $main-h-color
+  color:         $main-subheading-color
   text-align:    center
 
   p
@@ -70,47 +86,49 @@
     display: inline-block
     width:         33%
 
-  .employment-detail, .extra-detail
-    position: relative
-    background: #F6F6F6
-    margin-bottom: 5rem
-    padding: 2rem
+.employment-detail, .extra-detail
+  position: relative
+  background: #F6F6F6
+  margin-bottom: 5rem
+  padding: 2rem
 
-    &:before, &:after
-      position: absolute
-      width: 49%
-      height: 10px
-      content: ' '
-      left: 1rem
-      bottom: 0.75rem
-      background: transparent
-      -webkit-transform: skew(-5deg) rotate(-5deg)
-      -moz-transform: skew(-5deg) rotate(-5deg)
-      -ms-transform: skew(-5deg) rotate(-5deg)
-      -o-transform: skew(-5deg) rotate(-5deg)
-      transform: skew(-5deg) rotate(-3deg)
-      -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
-      -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
-      z-index: -1
+  &:before, &:after
+    position: absolute
+    width: 49%
+    height: 10px
+    content: ' '
+    left: 1rem
+    bottom: 0.75rem
+    background: transparent
+    -webkit-transform: skew(-5deg) rotate(-5deg)
+    -moz-transform: skew(-5deg) rotate(-5deg)
+    -ms-transform: skew(-5deg) rotate(-5deg)
+    -o-transform: skew(-5deg) rotate(-5deg)
+    transform: skew(-5deg) rotate(-3deg)
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
+    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3)
+    z-index: -1
 
-    &:after
-      left: auto
-      right: 1rem
-      -webkit-transform: skew(5deg) rotate(5deg)
-      -moz-transform: skew(5deg) rotate(5deg)
-      -ms-transform: skew(5deg) rotate(5deg)
-      -o-transform: skew(5deg) rotate(5deg)
-      transform: skew(5deg) rotate(3deg)
+  &:after
+    left: auto
+    right: 1rem
+    -webkit-transform: skew(5deg) rotate(5deg)
+    -moz-transform: skew(5deg) rotate(5deg)
+    -ms-transform: skew(5deg) rotate(5deg)
+    -o-transform: skew(5deg) rotate(5deg)
+    transform: skew(5deg) rotate(3deg)
 
-    &.yellow
-      background: #FFF2CC
+  &.yellow
+    background: #FFF2CC
 
-    &.blue
-      background: #CFFDFF
+  &.blue
+    background: #CFFDFF
 
-    &.green
-      background: #DDFFCF
+  &.green
+    background: #DDFFCF
+
+.employment-detail, .extra-detail, .education-detail
 
   ul
     padding-left: 2rem
@@ -138,3 +156,17 @@
   .extra-detail-body
     h4
       margin-top: 3rem
+
+.education-detail
+  width: 80%
+  margin: 0 auto
+
+  .logo
+    max-height: 5rem
+
+.contact
+  text-align: center
+  p
+    font-family:   'Bad Script', cursive
+    font-size:     2.5rem
+    color:         $main-subheading-color
