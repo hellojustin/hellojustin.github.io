@@ -5809,13 +5809,31 @@ button.close {
 
 .page-header {
   text-align: center;
-  border: 0; }
+  border: 0;
+  padding: 0;
+  margin-bottom: 0; }
   .page-header .name {
     color: #2e3192;
     font-size: 4.25rem; }
   .page-header .headline {
     color: #7f7f7f;
     font-size: 1.75rem; }
+  .page-header .social {
+    margin: 2rem auto 0; }
+    .page-header .social .icon {
+      height: 4rem;
+      width: 4rem;
+      display: inline-block;
+      margin: 0.3rem; }
+      .page-header .social .icon a {
+        display: block; }
+      .page-header .social .icon svg .background {
+        fill: #7f7f7f;
+        transition: fill 0.25s; }
+      .page-header .social .icon svg:hover .background {
+        fill: #2e3192; }
+      .page-header .social .icon svg .foreground {
+        fill: #fff; }
 
 .mugshot-pie {
   height: 35rem; }
@@ -5885,6 +5903,7 @@ button.close {
     color: #999999;
     font-weight: lighter; }
   .experience-etc .extra-detail-header h3 {
+    margin: 1rem 0;
     color: rgba(0, 0, 0, 0.5); }
   .experience-etc .extra-detail-body h4 {
     margin-top: 3rem; }

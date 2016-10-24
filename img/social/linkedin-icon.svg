@@ -1,1 +1,34 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.84584 23.84584"><defs><style>.cls-1{fill:#0076b2;}.cls-2{fill:#fff;}</style></defs><title>linkedin-icon</title><g id="Linkedin"><circle id="back" class="cls-1" cx="11.92292" cy="11.92292" r="11.92292"/><g id="Linkedin-2" data-name="Linkedin"><path class="cls-2" d="M338.706,128.29771h2.508v8.06141h-2.508v-8.06141Zm1.2547-4.00733a1.45295,1.45295,0,1,1-1.45352,1.45286,1.45312,1.45312,0,0,1,1.45352-1.45286" transform="translate(-332.67872 -118.44572)"/><path class="cls-2" d="M342.78577,128.29771h2.40159v1.10208h0.03443a2.63192,2.63192,0,0,1,2.37053-1.30216c2.53675,0,3.00555,1.66923,3.00555,3.84029v4.42119h-2.50512v-3.92026c0-.93481-0.01614-2.13746-1.302-2.13746-1.30364,0-1.50261,1.01881-1.50261,2.07058v3.98714h-2.50241v-8.06141Z" transform="translate(-332.67872 -118.44572)"/></g></g></svg>
+<svg
+  id="Layer_1"
+  data-name="Layer 1"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 23.84584 23.84584">
+  <defs>
+    <style>
+      #Layer_1 .background{
+        fill:#999;
+        transition: fill 0.25s;
+      }
+      #Layer_1:hover .background{
+        fill:#0076b2;
+      }
+      .foreground{
+        fill:#fff;
+      }
+    </style>
+  </defs>
+  <title>linkedin-icon</title>
+  <g id="Linkedin">
+    <circle id="back" class="background" cx="11.92292" cy="11.92292" r="11.92292"/>
+    <g id="Linkedin-2" data-name="Linkedin">
+      <path
+        class="foreground"
+        d="M338.706,128.29771h2.508v8.06141h-2.508v-8.06141Zm1.2547-4.00733a1.45295,1.45295,0,1,1-1.45352,1.45286,1.45312,1.45312,0,0,1,1.45352-1.45286"
+        transform="translate(-332.67872 -118.44572)"/>
+      <path
+        class="foreground"
+        d="M342.78577,128.29771h2.40159v1.10208h0.03443a2.63192,2.63192,0,0,1,2.37053-1.30216c2.53675,0,3.00555,1.66923,3.00555,3.84029v4.42119h-2.50512v-3.92026c0-.93481-0.01614-2.13746-1.302-2.13746-1.30364,0-1.50261,1.01881-1.50261,2.07058v3.98714h-2.50241v-8.06141Z"
+        transform="translate(-332.67872 -118.44572)"/>
+    </g>
+  </g>
+</svg>

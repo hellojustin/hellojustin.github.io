@@ -15,6 +15,8 @@
 .page-header
   text-align:     center
   border:         0
+  padding:        0
+  margin-bottom:  0
 
   .name
     color:        $main-h-color
@@ -24,6 +26,28 @@
     color:        $main-subheading-color
     font-size:    1.75rem
 
+  .social
+    margin:       2rem auto 0
+
+    .icon
+      height:     4rem
+      width:      4rem
+      display:    inline-block
+      margin:     0.3rem
+
+      a
+        display: block
+
+      svg
+        .background
+          fill: $main-subheading-color
+          transition: fill 0.25s
+
+        &:hover .background
+          fill: $main-h-color
+
+        .foreground
+          fill: #fff
 
 .mugshot-pie
   height:        35rem
@@ -108,6 +132,7 @@
 
   .extra-detail-header
     h3
+      margin: 1rem 0
       color: rgba( 0, 0, 0, 0.5 )
 
   .extra-detail-body
