@@ -5939,9 +5939,9 @@ button.close {
     color: #b2b2b2; }
 
 .dimmable-elem {
-  opacity: 0.5;
+  opacity: 1;
   transition: opacity 0.25s; }
-  .dimmable-elem.highlight {
-    opacity: 1; }
+  .dimmable-elem.dim {
+    opacity: 0.5; }
 
 /*# sourceMappingURL=main.css.map */
