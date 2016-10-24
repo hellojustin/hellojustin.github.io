@@ -13,7 +13,7 @@ $('.mugshot-pie, .resume-heatmap').on( 'mouseleave', '.dimmable-elem', function(
 $('.experience-etc').on('mouseenter', '.employment-detail', function( event ) {
   var el  = $(event.target),
       job = el.attr('data-job');
-  $('.dimmable-elem').attr('class', 'dimmable-elem');
+  // $('.dimmable-elem').attr('class', 'dimmable-elem');
   $('.dimmable-elem:not([data-job=' + job + '])').attr('class', 'dimmable-elem dim');
 });
 
