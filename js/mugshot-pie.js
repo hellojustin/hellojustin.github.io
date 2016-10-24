@@ -75,22 +75,24 @@ MugshotPie.prototype.draw = function() {
   // tell eskimo about our start location
   this.grid.point( 'arcStart', 1.57 );
 
-  this.drawSection( 'Technical Leadership', 30, 100, '#009245' );
-  this.drawSection( 'Hands-on Development', 20, 100, '#8CC63F' );
-  this.drawSection( 'Product Leadership', 20, 100, '#2E3192' );
-  this.drawSection( 'Project Leadership', 15, 100, '#29ABE2' );
-  this.drawSection( 'People Leadership', 10, 100, '#93278F' );
-  this.drawSection( 'UX Research & Design', 5, 100, '#D4145A' );
+  this.drawSection( 'Technical Leadership', 30, 100, '#009245', 'p2' );
+  this.drawSection( 'Hands-on Development', 20, 100, '#8CC63F', 'p1' );
+  this.drawSection( 'Product Leadership', 20, 100, '#2E3192', 'p4' );
+  this.drawSection( 'Project Leadership', 15, 100, '#29ABE2', 'p3' );
+  this.drawSection( 'People Leadership', 10, 100, '#93278F', 'p5' );
+  this.drawSection( 'UX Research & Design', 5, 100, '#D4145A', 'p6' );
 
   this.drawMugshot( this.mugshotUrl );
 };
 
-MugshotPie.prototype.drawSection = function( name, numerator, denominator, color ) {
+MugshotPie.prototype.drawSection = function( name, numerator, denominator, color, skillId ) {
   var pieSection = this.p.path().attr( {
     'arc'          : this.arcSection( name, numerator, denominator, 360 ),
     'stroke'       : color,
     'stroke-width' : this.strokeSize
   } );
+  pieSection.node.setAttribute('class', 'dimmable-elem');
+  pieSection.node.setAttribute('data-skill', skillId);
   var pieSectionPointer = this.p.path().attr( {
     'pointer'      : pieSection,
     'stroke'       : '#999999',

@@ -5938,4 +5938,10 @@ button.close {
     font-size: 2.5rem;
     color: #b2b2b2; }
 
+.dimmable-elem {
+  opacity: 0.5;
+  transition: opacity 0.25s; }
+  .dimmable-elem.highlight {
+    opacity: 1; }
+
 /*# sourceMappingURL=main.css.map */

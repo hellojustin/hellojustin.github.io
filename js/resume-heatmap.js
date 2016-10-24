@@ -5,7 +5,7 @@ var ResumeHeatmap = function ( selector, data, emplDetailsSelector ) {
   this.presetColors      = data.presetColors;
   this.skills            = data.skills;
   this.proSkillUse       = $.map( data.skillUsage, function( obj ) {
-    return { month: obj.month, year: obj.year, data: obj.professional };
+    return { month: obj.month, year: obj.year, data: obj.professional, job: obj.job };
   });
 
   this.el                = $( this.selector ).attr( 'id', 'ResumeHeatmap' );
@@ -84,13 +84,15 @@ ResumeHeatmap.prototype.resize = function() {
 ResumeHeatmap.prototype.drawSkills = function( skills ) {
   this.p.setStart();
   for ( var skillNum = 0; skillNum < skills.length; skillNum++ ) {
-    this.p.rect( this.proX,
+    var rect = this.p.rect( this.proX,
                  this.skillHeight * skillNum,
                  this.heatmapWidth - this.cellSpace,
                  this.skillHeight ).attr({
-      'fill'   : this.presetColors[ skills[skillNum].color ],
+      'fill'   : this.presetColors[ skills[skillNum].id ],
       'stroke' : 'none'
     });
+    rect.node.setAttribute('class', 'dimmable-elem');
+    rect.node.setAttribute('data-skill', skills[skillNum].id);
 
     this.p.text().attr({
       'x'           : this.proX + this.heatmapWidth / 2,
@@ -99,7 +101,7 @@ ResumeHeatmap.prototype.drawSkills = function( skills ) {
       'font-size'   : this.skillsFontSize,
       'fill'        : 'rgba( 252, 255, 245, 1 )',
       'text-anchor' : 'middle'
-    });
+    }).node.setAttribute('pointer-events', 'none');
   }
   return this.p.setFinish();
 };
@@ -115,16 +117,21 @@ ResumeHeatmap.prototype.drawRows = function( data, rowSize ) {
 
 ResumeHeatmap.prototype.drawRow = function( num, data ) {
   for ( var colNum = 0; colNum < data.data.length; colNum++ ) {
-    var cellData = data.data[colNum];
-    this.drawCell( num, colNum, cellData );
+    var cellData = data.data[colNum],
+        job      = data.job;
+    this.drawCell( num, colNum, cellData, job );
   }
 };
 
-ResumeHeatmap.prototype.drawCell = function( row, col, data ) {
+ResumeHeatmap.prototype.drawCell = function( row, col, data, job ) {
   var color = this.presetColors[ data ],
       x     = col * ( this.cellHeight + this.cellSpace ),
-      y     = row * ( this.cellWidth  + this.cellSpace ) + this.skillsHeight + this.cellSpace;
-  this.p.rect( x, y, this.cellWidth, this.cellHeight ).attr({ fill : color });
+      y     = row * ( this.cellWidth  + this.cellSpace ) + this.skillsHeight + this.cellSpace,
+      rect  = this.p.rect( x, y, this.cellWidth, this.cellHeight ).attr({fill : color});
+
+  rect.node.setAttribute('class', 'dimmable-elem');
+  rect.node.setAttribute('data-skill', data);
+  rect.node.setAttribute('data-job', job);
 };
 
 ResumeHeatmap.prototype.drawBrackets = function( elements ) {
