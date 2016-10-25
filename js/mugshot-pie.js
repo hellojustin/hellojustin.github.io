@@ -156,10 +156,12 @@ MugshotPie.prototype.drawMugshot = function( mugshotUrl ) {
       that = this;
 
   $(patternId + ' image').on('load', function() {
-    $(patternId + ', ' + patternId + ' image').attr({
-      'height': that.radius * 2 - that.strokeSize,
-      'width' : that.radius * 2 - that.strokeSize
-    });
+    setTimeout( function() {
+      $(patternId + ', ' + patternId + ' image').attr({
+        'height': that.radius * 2 - that.strokeSize,
+        'width' : that.radius * 2 - that.strokeSize
+      });
+    }, 1);
   });
   // $(patternId + ' image').load();
 
