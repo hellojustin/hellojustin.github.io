@@ -161,7 +161,7 @@ MugshotPie.prototype.drawMugshot = function( mugshotUrl ) {
         'height': that.radius * 2 - that.strokeSize,
         'width' : that.radius * 2 - that.strokeSize
       });
-    }, 1);
+    }, 50);
   });
   // $(patternId + ' image').load();
 
