@@ -5827,7 +5827,8 @@ button.close {
   .page-header .name {
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
     background-color: #1a31ba;
-    font-size: 4.25rem; }
+    font-size: 4.25rem;
+    font-weight: 500; }
   .page-header .headline {
     font-family: "Bad Script", cursive;
     font-size: 2.5rem;
