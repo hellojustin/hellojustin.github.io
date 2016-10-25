@@ -5799,7 +5799,7 @@ button.close {
     display: none !important; } }
 .content {
   margin: 0 auto;
-  max-width: 110rem;
+  width: 110rem;
   padding: 0 3rem;
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
