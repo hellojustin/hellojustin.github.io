@@ -5799,8 +5799,8 @@ button.close {
     display: none !important; } }
 .content {
   margin: 0 auto;
-  width: 110rem;
-  padding: 0 5rem;
+  max-width: 110rem;
+  padding: 0 3rem;
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   letter-spacing: 0.03rem; }
@@ -5834,6 +5834,11 @@ button.close {
     color: #b2b2b2; }
   .page-header .social {
     margin: 2rem auto 0; }
+    .page-header .social .group {
+      display: block; }
+      @media (min-width: 768px) {
+        .page-header .social .group {
+          display: inline-block; } }
     .page-header .social .icon {
       height: 4rem;
       width: 4rem;

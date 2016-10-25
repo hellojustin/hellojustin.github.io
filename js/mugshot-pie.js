@@ -7,14 +7,6 @@ var MugshotPie = function ( selector, data, mugshotUrl ) {
 
   this.el         = $( this.selector ).attr('id', 'MugshotPie');
   this.p          = Raphael( 'MugshotPie' );
-  this.center     = { x : this.p.width/2, y : this.p.height/2 };
-  this.radius     = 150;
-  this.sectionPad = 0.03;
-  this.strokeSize = 20;
-  this.grid       = new Eskimo( this.center, this.radius, Eskimo.getRadians( 270 ), -1 );
-  this.p.customAttributes.arc     = this.arcDefinition( this.grid, this.sectionPad );
-  this.p.customAttributes.pointer = this.pointerDefinition( this.center, this.radius, this.strokeSize/2 );
-  this.p.customAttributes.label   = this.labelDefinition( this.center, this.strokeSize );
 
   eve.on( 'mugshotpie:resize', this.debounce( this.resize, 200 ) );
 };
@@ -71,16 +63,31 @@ MugshotPie.prototype.arcSection = function( name, numerator, denominator, totalD
   return [ start.t, end.t ];
 };
 
+MugshotPie.prototype.measure = function() {
+  this.p.setSize( this.el.width(), this.el.parent().height() );
+  this.center     = { x : this.p.width/2, y : this.p.height/2 };
+  this.strokeSize = 20;
+  this.radius     = Math.min(this.p.width, this.p.height)/2 - this.strokeSize;
+  this.sectionPad = 0.03;
+
+  this.grid       = new Eskimo( this.center, this.radius, Eskimo.getRadians( 270 ), -1 );
+  this.p.customAttributes.arc     = this.arcDefinition( this.grid, this.sectionPad );
+  this.p.customAttributes.pointer = this.pointerDefinition( this.center, this.radius, this.strokeSize/2 );
+  this.p.customAttributes.label   = this.labelDefinition( this.center, this.strokeSize );
+}
+
 MugshotPie.prototype.draw = function() {
+  this.measure();
+
   // tell eskimo about our start location
   this.grid.point( 'arcStart', 1.57 );
 
-  this.drawSection( 'Technical Leadership', 30, 100, '#009245', 'p2' );
-  this.drawSection( 'Hands-on Development', 20, 100, '#8CC63F', 'p1' );
-  this.drawSection( 'Product Leadership', 20, 100, '#2E3192', 'p4' );
-  this.drawSection( 'Project Leadership', 15, 100, '#29ABE2', 'p3' );
-  this.drawSection( 'People Leadership', 10, 100, '#93278F', 'p5' );
-  this.drawSection( 'UX Research & Design', 5, 100, '#D4145A', 'p6' );
+  this.drawSection( 'Technical\nLeadership', 30, 100, '#009245', 'p2' );
+  this.drawSection( 'Hands-on\nDevelopment', 20, 100, '#8CC63F', 'p1' );
+  this.drawSection( 'Product\nLeadership', 20, 100, '#2E3192', 'p4' );
+  this.drawSection( 'Project\nLeadership', 15, 100, '#29ABE2', 'p3' );
+  this.drawSection( 'People\nLeadership', 10, 100, '#93278F', 'p5' );
+  this.drawSection( 'UX Research\n& Design', 5, 100, '#D4145A', 'p6' );
 
   this.drawMugshot( this.mugshotUrl );
 };
@@ -115,12 +122,25 @@ MugshotPie.prototype.drawSection = function( name, numerator, denominator, color
 };
 
 MugshotPie.prototype.drawMugshot = function( mugshotUrl ) {
-  var mugshotImage = new Image();
-  mugshotImage.src = mugshotUrl;
-  return this.p.circle( this.center.x, this.center.y, this.radius - this.strokeSize ).attr( {
-    fill         : 'url(' + mugshotUrl + ')',
-    'stroke-width' : 0
-  } );
+  var cacheBuster = Math.random(),
+      imageMask = this.p.circle( this.center.x, this.center.y, this.radius - this.strokeSize ).attr( {
+        fill         : 'url(' + mugshotUrl + '?' + cacheBuster + ')',
+        'stroke-width' : 0
+      } ),
+      idRegex   = /url\((.*)\)/,
+      pattern   = imageMask.node.getAttribute('fill'),
+      patternId = pattern.match(idRegex)[1],
+      that = this;
+
+  $(patternId + ' image').on('load', function() {
+    $(patternId + ', ' + patternId + ' image').attr({
+      'height': that.radius * 2 - that.strokeSize,
+      'width' : that.radius * 2 - that.strokeSize
+    });
+  });
+  // $(patternId + ' image').load();
+
+  return imageMask;
 };
 
 MugshotPie.prototype.resize = function() {
