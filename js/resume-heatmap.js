@@ -193,7 +193,7 @@ ResumeHeatmap.prototype.getRowFromMonthYear = function( month, year ) {
   }
 };
 
-var heatmap = new ResumeHeatmap( '.resume-heatmap', data, '.employment-detail' );
+var heatmap = new ResumeHeatmap( '.resume-heatmap', data, '.desktop .employment-detail' );
 heatmap.draw();
 $( window ).resize( function() { eve( 'heatmap:resize', heatmap ); } );
 $( function () {

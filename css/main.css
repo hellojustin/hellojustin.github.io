@@ -5799,7 +5799,7 @@ button.close {
     display: none !important; } }
 .content {
   margin: 0 auto;
-  width: 110rem;
+  max-width: 110rem;
   padding: 0 3rem;
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
@@ -5855,24 +5855,33 @@ button.close {
         fill: #fff; }
 
 .mugshot-pie {
-  height: 35rem; }
+  text-align: center; }
 
 .personal-statement {
   font-family: "Bad Script", cursive;
   font-weight: bold;
   font-size: 2rem;
   color: #b2b2b2;
-  text-align: center; }
-  .personal-statement p {
-    margin: 1.5rem auto;
-    max-width: 60rem; }
+  text-align: center;
+  margin: 1.5rem auto;
+  max-width: 60rem; }
 
 .experience-etc {
   margin: 0 auto; }
-  .experience-etc > div {
-    vertical-align: top;
-    display: inline-block;
-    width: 33%; }
+  .experience-etc.desktop {
+    display: none; }
+    @media (min-width: 992px) {
+      .experience-etc.desktop {
+        display: block; } }
+    .experience-etc.desktop > div {
+      vertical-align: top;
+      display: inline-block;
+      width: 33%; }
+  .experience-etc.mobile {
+    display: block; }
+    @media (min-width: 992px) {
+      .experience-etc.mobile {
+        display: none; } }
 
 .employment-detail, .extra-detail {
   position: relative;
