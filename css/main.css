@@ -5880,6 +5880,14 @@ button.close {
       @media screen and (min-width: 768px) {
         .intro .social .group {
           display: inline-block; } }
+      .intro .social .group.zero {
+        display: none; }
+        @media print {
+          .intro .social .group.zero {
+            display: block; } }
+      @media print {
+        .intro .social .group.two {
+          display: none; } }
     .intro .social .icon {
       height: 4rem;
       width: 4rem;

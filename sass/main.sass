@@ -90,6 +90,15 @@
       @include    at-sm
         display:  inline-block
 
+      &.zero
+        display: none
+        @include for-print
+          display: block
+
+      &.two
+        @include for-print
+          display: none
+
     .icon
       height:     4rem
       width:      4rem
@@ -275,7 +284,7 @@
 
   .education-detail-header
     margin-bottom: 2rem
-    
+
   .logo
     max-height: 5rem
 
