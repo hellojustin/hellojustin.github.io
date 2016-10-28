@@ -5806,7 +5806,7 @@ button.close {
   letter-spacing: 0.03rem; }
   @media print {
     .content {
-      width: 100rem; } }
+      width: 110rem; } }
   .content section {
     margin: 8rem 0; }
     @media print {
@@ -5844,11 +5844,11 @@ button.close {
       .page-header .intro {
         top: 0;
         left: 0;
-        width: 65rem; }
+        width: 40rem; }
       .page-header .mugshot-pie {
         top: 0;
         right: 0;
-        width: 35rem;
+        width: 60rem;
         height: 100%; } }
 
 .intro {
@@ -5873,7 +5873,8 @@ button.close {
     @media print {
       .intro .social {
         text-align: left;
-        margin: 4rem auto 0; } }
+        margin: 4rem auto 0;
+        width: 25rem; } }
     .intro .social .group {
       display: block; }
       @media screen and (min-width: 768px) {
@@ -5942,6 +5943,15 @@ button.close {
     @media screen and (min-width: 992px) {
       .experience-etc.mobile {
         display: none; } }
+    @media print {
+      .experience-etc.mobile .experience-left-column {
+        float: left;
+        width: 70rem;
+        vertical-align: top; }
+      .experience-etc.mobile .experience-right-column {
+        float: right;
+        width: 30rem;
+        vertical-align: top; } }
 
 .employment-detail, .extra-detail {
   position: relative;
@@ -5983,6 +5993,9 @@ button.close {
     background: #CFFDFF; }
   .employment-detail.green, .extra-detail.green {
     background: #DDFFCF; }
+  @media print {
+    .employment-detail.proud, .extra-detail.proud {
+      margin-bottom: 22rem; } }
 
 .employment-detail ul, .extra-detail ul, .education-detail ul {
   padding-left: 2rem; }
@@ -5993,21 +6006,56 @@ button.close {
 .employment-detail .title, .extra-detail .title, .education-detail .title {
   font-size: 2rem;
   color: #1a31ba; }
+  @media print {
+    .employment-detail .title, .extra-detail .title, .education-detail .title {
+      display: inline-block;
+      font-size: 1.75rem;
+      position: relative;
+      left: 2rem;
+      top: 0.4rem; } }
 .employment-detail .tenure, .extra-detail .tenure, .education-detail .tenure {
   font-size: 1.5rem;
   color: #999999;
   font-weight: lighter; }
+  @media print {
+    .employment-detail .tenure, .extra-detail .tenure, .education-detail .tenure {
+      display: inline-block;
+      position: absolute;
+      top: 2.5rem;
+      right: 0rem; } }
+.employment-detail .section-title, .extra-detail .section-title, .education-detail .section-title {
+  font-size: 2rem;
+  color: #1a31ba; }
 .employment-detail .extra-detail-header h3, .extra-detail .extra-detail-header h3, .education-detail .extra-detail-header h3 {
   margin: 1rem 0;
   color: rgba(0, 0, 0, 0.5); }
 .employment-detail .extra-detail-body h4, .extra-detail .extra-detail-body h4, .education-detail .extra-detail-body h4 {
   margin-top: 3rem; }
 
+.education {
+  clear: both; }
+
 .education-detail {
   width: 80%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative; }
+  @media print {
+    .education-detail {
+      width: 100%; } }
+  .education-detail .education-detail-header {
+    margin-bottom: 2rem; }
   .education-detail .logo {
     max-height: 5rem; }
+  @media print {
+    .education-detail .title {
+      display: inline-block;
+      font-size: 1.75rem;
+      position: relative;
+      left: 2rem;
+      top: 0.4rem; } }
+  @media print {
+    .education-detail .tenure {
+      top: 1.5rem; } }
 
 .contact {
   text-align: center; }
@@ -6015,6 +6063,9 @@ button.close {
     font-family: "Bad Script", cursive;
     font-size: 2.5rem;
     color: #b2b2b2; }
+  @media print {
+    .contact {
+      display: none; } }
 
 .dimmable-elem {
   opacity: 1;
