@@ -77,16 +77,26 @@ MugshotPie.prototype.arcSection = function( name, numerator, denominator, totalD
 };
 
 MugshotPie.prototype.measure = function() {
-  var elWidth  = this.el.width(),
-      elHeight = this.el.parent().height();
+  var elWidth      = this.el.width(),
+      elHeight     = this.el.parent().height();
+
   if (elWidth > elHeight) {
-    this.p.setSize(elHeight * 2, elHeight);
-    this.p.setViewBox( 0, 0, elHeight * 2, elHeight );
+    if (elWidth > elHeight * 2) {
+      this.p.setSize(elHeight * 2, elHeight);
+      this.p.setViewBox( 0, 0, elHeight * 2, elHeight );
+    } else {
+      this.p.setSize(elWidth, elWidth / 2);
+      this.p.setViewBox( 0, 0, elWidth, elWidth / 2 );
+    }
   } else {
-    this.p.setSize(elWidth, elWidth * 1.5);
-    this.p.setViewBox( 0, 0, elWidth, elWidth * 1.5 );
+    if (elHeight > elWidth * 1.5) {
+      this.p.setSize(elWidth, elWidth * 1.5);
+      this.p.setViewBox( 0, 0, elWidth, elWidth * 1.5 );
+    } else {
+      this.p.setSize(elHeight / 1.5, elHeight);
+      this.p.setViewBox( 0, 0, elHeight / 1.5, elHeight );
+    }
   }
-  // this.p.setSize( this.el.width(), this.el.parent().height() );
 
   this.center     = { x : this.p.width/2, y : this.p.height/2 };
   this.strokeSize = 20;
@@ -185,7 +195,9 @@ MugshotPie.prototype.debounce = function( callback, delay ) {
   }
 };
 
-var mugshotPie = new MugshotPie( '.mugshot-pie div', {}, 'img/mug.jpg' );
-mugshotPie.draw();
+$(window).ready( function() {
+  var mugshotPie = new MugshotPie( '.mugshot-pie div', {}, 'img/mug.jpg' );
+  mugshotPie.draw();
 
-$( window ).resize( function() { eve( 'mugshotpie:resize', mugshotPie ); } );
+  $( window ).resize( function() { eve( 'mugshotpie:resize', mugshotPie ); } );
+});

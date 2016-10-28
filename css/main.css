@@ -5804,8 +5804,14 @@ button.close {
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
   letter-spacing: 0.03rem; }
-  .content > section {
+  @media print {
+    .content {
+      width: 100rem; } }
+  .content section {
     margin: 8rem 0; }
+    @media print {
+      .content section {
+        margin: 3rem 0; } }
   .content .section-name, .content .name {
     margin: 3rem auto;
     text-align: center;
@@ -5818,45 +5824,95 @@ button.close {
     -webkit-background-clip: text;
     -moz-background-clip: text;
     background-clip: text; }
+    @media print {
+      .content .section-name, .content .name {
+        font-size: 3rem; } }
 
 .page-header {
-  text-align: center;
   border: 0;
   padding: 0;
-  margin-bottom: 0; }
-  .page-header .name {
+  margin-bottom: 8rem;
+  position: relative; }
+  @media print {
+    .page-header {
+      height: 40rem;
+      margin-bottom: 4rem; }
+      .page-header section {
+        position: absolute;
+        display: inline-block;
+        margin: 0; }
+      .page-header .intro {
+        top: 0;
+        left: 0;
+        width: 65rem; }
+      .page-header .mugshot-pie {
+        top: 0;
+        right: 0;
+        width: 35rem;
+        height: 100%; } }
+
+.intro {
+  text-align: center; }
+  .intro .name {
     text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6);
     background-color: #1a31ba;
     font-size: 4.25rem;
     font-weight: 500; }
-  .page-header .headline {
+    @media print {
+      .intro .name {
+        font-size: 3.5rem; } }
+  .intro .headline {
     font-family: "Bad Script", cursive;
     font-size: 2.5rem;
     color: #b2b2b2; }
-  .page-header .social {
+    @media print {
+      .intro .headline {
+        font-size: 2rem; } }
+  .intro .social {
     margin: 2rem auto 0; }
-    .page-header .social .group {
+    @media print {
+      .intro .social {
+        text-align: left;
+        margin: 4rem auto 0; } }
+    .intro .social .group {
       display: block; }
-      @media (min-width: 768px) {
-        .page-header .social .group {
+      @media screen and (min-width: 768px) {
+        .intro .social .group {
           display: inline-block; } }
-    .page-header .social .icon {
+    .intro .social .icon {
       height: 4rem;
       width: 4rem;
       display: inline-block;
       margin: 0.3rem; }
-      .page-header .social .icon a {
+      @media print {
+        .intro .social .icon {
+          display: block;
+          height: 2rem;
+          width: 2rem; } }
+      .intro .social .icon a {
         display: block; }
-      .page-header .social .icon svg .background {
+      .intro .social .icon .url {
+        display: none; }
+        @media print {
+          .intro .social .icon .url {
+            display: inline;
+            position: relative;
+            top: -2.5rem;
+            left: 3rem; } }
+      @media print {
+        .intro .social .icon a[href]:after {
+          content: none; } }
+      .intro .social .icon svg .background {
         fill: #b2b2b2;
         transition: fill 0.25s; }
-      .page-header .social .icon svg:hover .background {
+      .intro .social .icon svg:hover .background {
         fill: #1a31ba; }
-      .page-header .social .icon svg .foreground {
+      .intro .social .icon svg .foreground {
         fill: #fff; }
 
 .mugshot-pie {
-  text-align: center; }
+  text-align: center;
+  height: 35rem; }
 
 .personal-statement {
   font-family: "Bad Script", cursive;
@@ -5866,12 +5922,15 @@ button.close {
   text-align: center;
   margin: 1.5rem auto;
   max-width: 60rem; }
+  @media print {
+    .personal-statement {
+      font-size: 1.75rem; } }
 
 .experience-etc {
   margin: 0 auto; }
   .experience-etc.desktop {
     display: none; }
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       .experience-etc.desktop {
         display: block; } }
     .experience-etc.desktop > div {
@@ -5880,7 +5939,7 @@ button.close {
       width: 33%; }
   .experience-etc.mobile {
     display: block; }
-    @media (min-width: 992px) {
+    @media screen and (min-width: 992px) {
       .experience-etc.mobile {
         display: none; } }
 
@@ -5889,6 +5948,10 @@ button.close {
   background: #F6F6F6;
   margin-bottom: 5rem;
   padding: 2rem; }
+  @media print {
+    .employment-detail, .extra-detail {
+      margin-bottom: 0;
+      padding: 1rem; } }
   .employment-detail:before, .employment-detail:after, .extra-detail:before, .extra-detail:after {
     position: absolute;
     width: 49%;

@@ -2,6 +2,10 @@ Make sure you have node js installed:
 
     brew install node
 
+Install ruby dependencies, mainly sass & compass:
+
+    bundle install
+
 Install node dependencies (tooling):
 
     npm install
