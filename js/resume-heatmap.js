@@ -44,7 +44,7 @@ ResumeHeatmap.prototype.measure = function() {
   this.skillHeight       = this.skillsFontSize + this.skillsPadding*2
   this.skillsHeight      = this.skills.length * this.skillHeight;
 
-  this.presentDate       = { month: 10, year: 2016 };
+  this.presentDate       = { month: 11, year: 2018 };
   this.el.height( this.proHeight + this.skillsHeight );
   this.p.setSize( this.el.width(), this.el.parent().height() );
 

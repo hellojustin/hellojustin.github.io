@@ -115,11 +115,11 @@ MugshotPie.prototype.draw = function() {
   // tell eskimo about our start location
   this.grid.point( 'arcStart', 1.57 );
 
-  this.drawSection( 'Technical\nLeadership', 30, 100, '#009245', 'p2', 0 );
-  this.drawSection( 'Hands-on\nDevelopment', 20, 100, '#8CC63F', 'p1', 20 );
+  this.drawSection( 'People\nLeadership', 20, 100, '#93278F', 'p5', -30 );
   this.drawSection( 'Product\nLeadership', 20, 100, '#2E3192', 'p4', -30 );
-  this.drawSection( 'Project\nLeadership', 15, 100, '#29ABE2', 'p3', 10 );
-  this.drawSection( 'People\nLeadership', 10, 100, '#93278F', 'p5', -30 );
+  this.drawSection( 'Technical\nLeadership', 25, 100, '#009245', 'p2', 0 );
+  this.drawSection( 'Project\nLeadership', 10, 100, '#29ABE2', 'p3', 10 );
+  this.drawSection( 'Hands-on\nDevelopment', 20, 100, '#8CC63F', 'p1', 20 );
   this.drawSection( 'UX Research\n& Design', 5, 100, '#D4145A', 'p6', 10 );
 
   this.drawMugshot( this.mugshotUrl );
