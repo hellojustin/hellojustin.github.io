@@ -5808,7 +5808,7 @@ button.close {
     .content {
       width: 110rem; } }
   .content section {
-    margin: 8rem 0; }
+    margin: 8rem auto; }
     @media print {
       .content section {
         margin: 3rem 0; } }
@@ -5835,7 +5835,7 @@ button.close {
   position: relative; }
   @media print {
     .page-header {
-      height: 40rem;
+      height: 36rem;
       margin-bottom: 4rem; }
       .page-header section {
         position: absolute;
@@ -5844,7 +5844,7 @@ button.close {
       .page-header .intro {
         top: 0;
         left: 0;
-        width: 40rem; }
+        width: 45rem; }
       .page-header .mugshot-pie {
         top: 0;
         right: 0;
@@ -5860,21 +5860,23 @@ button.close {
     font-weight: 500; }
     @media print {
       .intro .name {
-        font-size: 3.5rem; } }
+        font-size: 3.5rem;
+        margin: 1.5rem auto; } }
   .intro .headline {
     font-family: "Bad Script", cursive;
     font-size: 2.5rem;
     color: #b2b2b2; }
     @media print {
       .intro .headline {
-        font-size: 2rem; } }
+        display: none;
+        font-size: 2rem;
+        margin: 1.5rem auto; } }
   .intro .social {
     margin: 2rem auto 0; }
     @media print {
       .intro .social {
         text-align: left;
-        margin: 4rem auto 0;
-        width: 25rem; } }
+        margin: 2rem auto 0; } }
     .intro .social .group {
       display: block; }
       @media screen and (min-width: 768px) {
@@ -5886,7 +5888,7 @@ button.close {
           .intro .social .group.zero {
             display: block; } }
       @media print {
-        .intro .social .group.two {
+        .intro .social .group.one, .intro .social .group.two {
           display: none; } }
     .intro .social .icon {
       height: 4rem;
@@ -5895,19 +5897,19 @@ button.close {
       margin: 0.3rem; }
       @media print {
         .intro .social .icon {
-          display: block;
-          height: 2rem;
-          width: 2rem; } }
+          display: inline-block;
+          height: auto;
+          width: auto; } }
       .intro .social .icon a {
         display: block; }
       .intro .social .icon .url {
         display: none; }
         @media print {
           .intro .social .icon .url {
-            display: inline;
+            display: inline-block;
             position: relative;
-            top: -2.5rem;
-            left: 3rem; } }
+            top: -0.5rem;
+            font-size: 1.25rem; } }
       @media print {
         .intro .social .icon a[href]:after {
           content: none; } }
@@ -5918,22 +5920,26 @@ button.close {
         fill: #1a31ba; }
       .intro .social .icon svg .foreground {
         fill: #fff; }
+      @media print {
+        .intro .social .icon svg {
+          width: 2rem;
+          height: 2rem; } }
 
 .mugshot-pie {
   text-align: center;
   height: 35rem; }
 
 .personal-statement {
-  font-family: "Bad Script", cursive;
-  font-weight: bold;
-  font-size: 2rem;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.75rem;
   color: #b2b2b2;
   text-align: center;
-  margin: 1.5rem auto;
-  max-width: 60rem; }
+  max-width: 80rem; }
   @media print {
     .personal-statement {
-      font-size: 1.75rem; } }
+      max-width: 45rem;
+      top: 14rem;
+      font-size: 1.25rem; } }
 
 .experience-etc {
   margin: 0 auto; }
