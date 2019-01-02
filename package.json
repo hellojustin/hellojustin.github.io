@@ -4,7 +4,9 @@
   "description": "The source code for www.hellojustin.net",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "bower": "bower",
+    "grunt": "grunt"
   },
   "repository": {
     "type": "git",
@@ -15,13 +17,13 @@
   "bugs": {
     "url": "https://github.com/hellojustin/hellojustin.net/issues"
   },
-  "dependencies" : {
-    "bower" : "~1.5.3"
+  "dependencies": {
+    "bower": "~1.5.3"
   },
-  "devDependencies" : {
-    "grunt"               : "~0.4.5",
-    "grunt-cli"           : "*",
-    "grunt-contrib-sass"  : "~0.8.0",
-    "grunt-contrib-watch" : "~0.6.1"
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-cli": "*",
+    "grunt-contrib-sass": "~0.8.0",
+    "grunt-contrib-watch": "~0.6.1"
   }
 }
